@@ -1,0 +1,23 @@
+<!-- Author: Guanyuming He
+Modified 2023.4.26 -->
+<!DOCTYPE html>
+<html>
+
+<header>
+    <h1>Groomer schedules</h1>
+</header>
+
+<body>
+    <ul>
+        <li data-th-each="groomer: ${groomerList}">
+            <h3 data-th-text="${groomer.name}"></h3>
+            <ul>
+                <li data-th-each="schedule: ${groomer.scheduleList}">
+                    <h3 data-th-text="${schedule.day}"></h3>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

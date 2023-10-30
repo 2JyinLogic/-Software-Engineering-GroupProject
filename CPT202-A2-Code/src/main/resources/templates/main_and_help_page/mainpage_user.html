@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/main_and_help_page/style/main.css">
+    <link rel="stylesheet" href="/main_and_help_page/style/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+</head>
+
+<body>
+<div class="home">
+    <header>
+        <div class="logo">Furry Fashion</div>
+        <div class="userinfo">
+            <div class="item user">
+                <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">
+                <i class="icon"></i>
+                <div class="user_wrap">
+                    <a th:href="@{/account}" id="sign-in-link">Account</a>
+                    <a th:href="@{/history}">Orders</a>
+                    <a th:href="@{/logout}">Sign Out</a>
+                    <a th:href="@{/sign-up}" id="sign-up-link">Sign Up</a>
+                </div>
+            </div>
+            <div class="item home_icon">
+                <img src="https://p1.ssl.qhimg.com/t01d6a6a68b7c4e45a5.png" alt="Home">
+                <a href="/home" style="color: white;"> Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="book_appointment">
+            <img src="/main_and_help_page/images/header.png">
+        </div>
+
+        <h2 class="title">INTRODUCTION</h2>
+
+        <div class="container">
+            <div class="grooming_tab">
+                <div class="wrap">
+                    <div class="tabs">
+                        <div class="tab cur">SERVICE EXAMPLES</div>
+                        <div class="tab">GROMMER EXAMPLES</div>
+                    </div>
+                    <div class="tabs_conent">
+                        <div class="content">
+                            <div class="wraps cur">
+                                <div class="left">
+                                    <div class="item left-tab-item sel">
+                                        <div class="icon">
+                                            <div class="sel">
+                                                <div class="cover">
+                                                    <img src="/main_and_help_page/images/dog_bath.png" alt="">
+                                                </div>
+                                                <span>Bath</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item left-tab-item">
+                                        <div class="icon">
+                                            <div>
+                                                <div class="cover">
+                                                    <img src="/main_and_help_page/images/dog_haircut.png" alt="">
+                                                </div>
+                                                <span>Haircut</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="right_wraps cur">
+                                        <div class="title">
+                                            <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">
+                                            <span>Bath</span>
+                                        </div>
+                                        <div class="bottom">
+                                            <ul>
+                                                <li>Deep-cleansing shampoo</li>
+                                                <li>Blow-dry</li>
+                                                <li>Nail trim</li>
+                                                <li>Ear cleaning</li>
+                                                <li>15-min brushout</li>
+                                                <li>Scented spritz</li>
+                                            </ul>
+                                            <div class="btn">
+                                                <a th:href="@{/appointment}">
+                                                    book appointment
+                                                </a>
+                                            </div>
+                                            <p>Pricing is subject to change.</p>
+                                        </div>
+                                    </div>
+                                    <div class="right_wraps" style="display: none;">
+                                        <div class="title">
+                                            <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">
+                                            <span>Bath & Haircut</span>
+                                        </div>
+                                        <div class="bottom">
+                                            <ul>
+                                                <li>Cut and style</li>
+                                                <li>Cut and style</li>
+                                                <li>15-min brushout</li>
+                                                <li>Ear cleaning</li>
+                                                <li>15-min brushout</li>
+                                                <li>Gland expression</li>
+                                            </ul>
+                                            <div class="btn">
+                                                <a th:href="@{/appointment}">
+                                                    book appointment
+                                                </a>
+                                            </div>
+                                            <p>Pricing varies by store/location and breed type.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="wraps box3 right_wraps">
+                                <div class="left">
+                                    <div class="item cur">
+                                        <div class="icon">
+                                            1.
+                                        </div>
+                                        <span>Kathy</span>
+                                    </div>
+                                    <div class="item">
+                                        <div class="icon">
+                                            2.
+                                        </div>
+                                        <span>Liily</span>
+                                    </div>
+                                    <div class="item">
+                                        <div class="icon">
+                                            3.
+                                        </div>
+                                        <span>Jeffery</span>
+                                    </div>
+                                    <div class="item">
+                                        <div class="icon">
+                                            4.
+                                        </div>
+                                        <span>Willieam</span>
+                                    </div>
+                                    <div class="item">
+                                        <div class="icon">
+                                            5.
+                                        </div>
+                                        <span>Nancy</span>
+                                    </div>
+                                </div>
+
+                                <div class="right">
+                                    <div class="right_wraps cur">
+                                        <div class="top">
+                                            <img src="/main_and_help_page/images/groomer1.png" alt="Account">
+                                            <div class="top_contents">
+                                                <span>Kathy</span>
+                                                <span>Kathy's work experience is 5 years. She can help pets with cleaning, trimming, styling, and coloring of hair, finger and paw areas to beautify and protect their appearance and become healthier and more fashionable.</span>
+                                            </div>
+                                        </div>
+                                        <div class="btn">
+                                            <a th:href="@{/appointment}">
+                                                book appointment
+                                            </a>
+                                        </div>                                    </div>
+                                    <div class="right_wraps">
+                                        <div class="top">
+                                            <img src="/main_and_help_page/images/groomer2.png" alt="Account">
+                                            <div class="top_contents">
+                                                <span>Liily</span>
+                                                <span>Liily's work experience is 5 years. She can help pets with cleaning, trimming, styling, and coloring of hair, finger and paw areas to beautify and protect their appearance and become healthier and more fashionable.</span>
+                                            </div>
+                                        </div>
+                                        <div class="btn">
+                                            <a th:href="@{/appointment}">
+                                                book appointment
+                                            </a>
+                                        </div>                                        </div>
+                                    <div class="right_wraps">
+                                        <div class="top">
+                                            <img src="/main_and_help_page/images/groomer3.png" alt="Account">
+                                            <div class="top_contents">
+                                                <span>Jeffery</span>
+                                                <span>Jeffery's work experience is 5 years. She can help pets with cleaning, trimming, styling, and coloring of hair, finger and paw areas to beautify and protect their appearance and become healthier and more fashionable.</span>
+                                            </div>
+                                        </div>
+                                        <div class="btn">
+                                            <a th:href="@{/appointment}">
+                                                book appointment
+                                            </a>
+                                        </div>                                         </div>
+                                    <div class="right_wraps">
+                                        <div class="top">
+                                            <img src="/main_and_help_page/images/groomer4.png" alt="Account">
+                                            <div class="top_contents">
+                                                <span>Willieam</span>
+                                                <span>Willieam's work experience is 3 years. She can help pets with cleaning, trimming, styling, and coloring of hair, finger and paw areas to beautify and protect their appearance and become healthier and more fashionable.</span>
+                                            </div>
+                                        </div>
+                                        <div class="btn">
+                                            <a th:href="@{/appointment}">
+                                                book appointment
+                                            </a>
+                                        </div>                                        </div>
+                                    <div class="right_wraps">
+                                        <div class="top">
+                                            <img src="/main_and_help_page/images/groomer5.png" alt="Account">
+                                            <div class="top_contents">
+                                                <span>Nancy</span>
+                                                <span>Nancy's work experience is 1 years. She can help pets with cleaning, trimming, styling, and coloring of hair, finger and paw areas to beautify and protect their appearance and become healthier and more fashionable.</span>
+                                            </div>
+                                        </div>
+                                        <div class="btn">
+                                            <a th:href="@{/appointment}">
+                                                book appointment
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div class="sell">-->
+<!--                View Comments-->
+<!--            </div>-->
+
+            <div class="box1">
+                <h3 class="boxTitle">Add a personalized package targeting specific needs</h3>
+                <div class="wraps">
+                    <div class="left">
+                        <div class="item">
+                            <div class="icon">
+                            </div>
+                            <span>BATH</span>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                            </div>
+                            <span>HAIR TRIMMING</span>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                            </div>
+                            <span>MASSAGE</span>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                            </div>
+                            <span>DEWORMING</span>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="right_wraps cur">
+                            <div class="title">
+                                <img src="/main_and_help_page/images/service4.png" alt="Account">
+                                <div class="titles">
+                                    <span>BATH</span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <ul>
+                                    <li><span>✔️</span><span>Upgraded shampoo</span></li>
+
+                                    <li><span>✔️</span><span>Teeth-brushing</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right_wraps">
+                            <div class="title">
+                                <img src="/main_and_help_page/images/service3.png" alt="Account">
+                                <div class="titles">
+                                    <span>HAIR TRIMMING</span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <ul>
+                                    <li><span>✔️</span><span>Lavender shampoo and conditioner</span></li>
+                                    <li><span>✔️</span><span>Scented spritz and paw balm</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right_wraps">
+                            <div class="title">
+                                <img src="/main_and_help_page/images/service2.png" alt="Account">                                
+                            <div class="titles">
+                                <span>MASSAGE</span>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <ul>
+                                <li><span>✔️</span><span>Conditioner</span></li>
+                                <li><span>✔️</span><span>Teeth-brushing</span></li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="right_wraps">
+                            <div class="title">
+                                <img src="/main_and_help_page/images/service1.png" alt="Account">
+                                <div class="titles">
+                                    <span>DEWORMING</span>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <ul>
+                                    <li><span>✔️</span><span>Conditioner</span></li>                            
+                                    <li><span>✔️</span><span>Scented spritz and paw balm</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box2">
+                <h3 class="boxTitle">Estimate pricing based on your dog’s size*</h3>
+                <ul>
+                    <li>
+                        <div class="cover">
+                            <img src="/main_and_help_page/images/dog1.png" alt="">
+                        </div>
+                        <div class="btm">
+                            <span>X-SMALL</span>
+                            <span>Up to 10 lbs.</span>
+                            <div class="more" data-id="xsmall-info">More info</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="/main_and_help_page/images/dog2.png" alt="">
+                        </div>
+                        <div class="btm">
+                            <span>SMALL</span>
+                            <span>11-25 lbs.</span>
+                            <div class="more" data-id="small-info">More info</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="/main_and_help_page/images/dog3.png" alt="">
+                        </div>
+                        <div class="btm">
+                            <span>MEDIUM</span>
+                            <span>11-25 lbs.</span>
+                            <div class="more" data-id="medium-info">More info</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="/main_and_help_page/images/dog4.png" alt="">
+                        </div>
+                        <div class="btm">
+                            <span>LARGE</span>
+                            <span>11-25 lbs.</span>
+                            <div class="more" data-id="large-info">More info</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cover">
+                            <img src="/main_and_help_page/images/dog5.png" alt="">
+                        </div>
+                        <div class="btm">
+                            <span>X-LARGE</span>
+                            <span>81+ lbs.</span>
+                            <div class="more" data-id="xlarge-info">More info</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="box3">
+                <h3 class="boxTitle">Your dog’s experience at the salon</h3>
+                <div class="wraps">
+                    <div class="left">
+                        <div class="item cur">
+                            <div class="icon">
+                                1.
+                            </div>
+                            <span>Check-in</span>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                2.
+                            </div>
+                            <span>Brush and clip</span>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                3.
+                            </div>
+                            <span>Full haircut</span>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                4.
+                            </div>
+                            <span>Bath and dry</span>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                5.
+                            </div>
+                            <span>Report card</span>
+                        </div>
+                    </div>
+
+                    <div class="right">
+                        <div class="right_wraps cur">
+                            <div class="top">
+                                <img src="/main_and_help_page/images/dog_bath.png" alt="Account">
+                                <div class="top_contents">
+                                    <span></span>
+                                    <span>Your service starts with our 7-Point Pet Care Check,* a quick screening to make sure nothing looks or feels abnormal on your pet.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_wraps">
+                            <div class="top">
+                                <img src="/main_and_help_page/images/dog_bath.png" alt="Account">
+                                <div class="top_contents">
+                                    <span></span>
+                                    <span>We personalize your dog’s service to their needs, which may include a thorough brushoff or initial shave if your dog has a thick coat.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_wraps">
+                            <div class="top">
+                                <img src="/main_and_help_page/images/dog_bath.png" alt="Account">
+                                <div class="top_contents">
+                                    <span></span>
+                                    <span>Here’s where the real transformation happens. Our stylists work their magic to create personalized cuts by breed and style preferences.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_wraps">
+                            <div class="top">
+                                <img src="/main_and_help_page/images/dog_bath.png" alt="Account">
+                                <div class="top_contents">
+                                    <span></span>
+                                    <span>We gently massage shampoo into your dog’s coat to remove dirt, oil and debris. We use a variety of personalized drying methods to ensure your dog’s safety and comfort, from air- and towel-drying to non-heated hand-held dryers.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_wraps">
+                            <div class="top">
+                                <img src="/main_and_help_page/images/dog_bath.png" alt="Account">
+                                <div class="top_contents">
+                                    <span>Your pet’s overall health is our top priority, so we’ll send them home with a full report detailing services provided and aftercare recommendations to help keep them healthy and looking fantastic until their next grooming appointment.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img src="/main_and_help_page/images/environment1.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/main_and_help_page/images/environment2.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/main_and_help_page/images/environment3.png">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="box4">
+                <h3 class="boxTitle center">FAQ</h3>
+                <ul>
+                    <li>
+                        <div class="top">
+                            <span>What is the price for a dog bath or bath with haircut?</span>
+                            <div class="arrow"></div>
+                        </div>
+                        <div class="btm">
+                            You can call your local grooming salon before your visit to receive an estimated
+                            price. Based on your preferred grooming service options, you can discuss details over the
+                            phone or in person when you meet your groomer at the start of your pet's groom.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <span>How do I get my pet started with a grooming service?</span>
+                            <div class="arrow"></div>
+                        </div>
+                        <div class="btm">
+                            For dogs, we offer online booking on our home page. For cats, please call
+                            your salon to confirm if a groomer for cats is available. If you'd like to chat with a
+                            groomer about your pet's specific needs, call your local salon.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <span>How do I change or cancel an appointment?</span>
+                            <div class="arrow"></div>
+                        </div>
+                        <div class="btm">
+                            Manage your appointments through your account.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="top">
+                            <span>How is safety ensured for all dog grooming services?</span>
+                            <div class="arrow"></div>
+                        </div>
+                        <div class="btm">
+                            We are committed to maintaining the highest standards of animal care and safety in the
+                            industry, as developed under the supervision of our Director of Veterinary Medicine, with
+                            counsel from several independent experts in animal care, behavior and ethics.
+
+                            A few ways we ensure your pet's safety in the grooming salon is by:
+
+                            Completing a comprehensive 7-Point Pet Care Check for every pet upon check-in to ensure
+                            nothing looks or feels abnormal
+                            Using ramps or steps for senior dogs to get into the tubs or bathe really large dogs on the
+                            floor
+                            Providing industry-standard comfortable and safe kennels
+                            Utilizing the Groomer's Helper tool, designed to help safely maintain control of your pet's
+                            body and head while on the grooming table
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <div class="side_box" id="xsmall-info-box">
+        <div class="mask"></div>
+        <div class="box">
+            <div class="top">
+                <i class="close"></i>
+                <img src="/main_and_help_page/images/dog1.png" alt="">
+                <div class="right">
+                    <span class="size">x-small</span>
+                    <h2>Up to 10 lbs.</h2>
+                    <div>
+                        <span>bath</span>
+                        <span>starts at $20</span>
+                    </div>                    
+                    <div>
+                        <span>hair trimming</span>
+                        <span>starts at $25</span>
+                    </div>
+                    <div>
+                        <span>deworming</span>
+                        <span>starts at $46</span>
+                    </div>
+                    <div>
+                        <span>massage</span>
+                        <span>starts at $80</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <span>Example breeds:</span>
+                Shih Tzu
+            </div>
+            <p>
+*Pricing is subject to change
+            </p>
+        </div>
+    </div>
+
+    <div class="side_box" id="small-info-box">
+        <div class="mask"></div>
+        <div class="box">
+            <div class="top">
+                <i class="close"></i>
+                <img src="/main_and_help_page/images/dog2.png" alt="">
+                <div class="right">
+                    <span class="size">small</span>
+                    <h2>11-25lbs.</h2>
+                    <div>
+                        <span>bath</span>
+                        <span>starts at $20</span>
+                    </div>                    
+                    <div>
+                        <span>hair trimming</span>
+                        <span>starts at $25</span>
+                    </div>
+                    <div>
+                        <span>deworming</span>
+                        <span>starts at $46</span>
+                    </div>
+                    <div>
+                        <span>massage</span>
+                        <span>starts at $80</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <span>Example breeds:</span>
+                Toy Poodle
+            </div>
+            <p>
+*Pricing is subject to change
+            </p>
+        </div>
+    </div>
+
+
+    <div class="side_box" id="medium-info-box">
+        <div class="mask"></div>
+        <div class="box">
+            <div class="top">
+                <i class="close"></i>
+                <img src="/main_and_help_page/images/dog3.png" alt="">
+                <div class="right">
+                    <span class="size">medium</span>
+                    <h2>26-50 lbs.</h2>
+                    <div>
+                        <span>bath</span>
+                        <span>starts at $20</span>
+                    </div>                    
+                    <div>
+                        <span>hair trimming</span>
+                        <span>starts at $25</span>
+                    </div>
+                    <div>
+                        <span>deworming</span>
+                        <span>starts at $46</span>
+                    </div>
+                    <div>
+                        <span>massage</span>
+                        <span>starts at $80</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <span>Example breeds:</span>
+                Papillon
+            </div>
+            <p>
+*Pricing is subject to change
+            </p>
+        </div>
+    </div>
+
+
+    <div class="side_box" id="large-info-box">
+        <div class="mask"></div>
+        <div class="box">
+            <div class="top">
+                <i class="close"></i>
+                <img src="/main_and_help_page/images/dog4.png" alt="">
+                <div class="right">
+                    <span class="size">large</span>
+                    <h2>51-80 lbs.</h2>
+                    <div>
+                        <span>bath</span>
+                        <span>starts at $20</span>
+                    </div>                    
+                    <div>
+                        <span>hair trimming</span>
+                        <span>starts at $25</span>
+                    </div>
+                    <div>
+                        <span>deworming</span>
+                        <span>starts at $46</span>
+                    </div>
+                    <div>
+                        <span>massage</span>
+                        <span>starts at $80</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <span>Example breeds:</span>
+                Dachshund
+            </div>
+            <p>
+*Pricing is subject to change
+            </p>
+        </div>
+    </div>
+
+    <div class="side_box" id="xlarge-info-box">
+        <div class="mask"></div>
+        <div class="box">
+            <div class="top">
+                <i class="close"></i>
+                <img src="/main_and_help_page/images/dog5.png" alt="">
+                <div class="right">
+                    <span class="size">xlarge</span>
+                    <h2>81+ lbs.</h2>
+                    <div>
+                        <span>bath</span>
+                        <span>starts at $20</span>
+                    </div>                    
+                    <div>
+                        <span>hair trimming</span>
+                        <span>starts at $25</span>
+                    </div>
+                    <div>
+                        <span>deworming</span>
+                        <span>starts at $46</span>
+                    </div>
+                    <div>
+                        <span>massage</span>
+                        <span>starts at $80</span>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <span>Example breeds:</span>
+                Pomeranian
+            </div>
+            <p>
+*Pricing is subject to change
+            </p>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="/main_and_help_page/js/index.js"></script>
+<script>
+    $('.left-tab-item').click(function () {
+        $('.right_wraps').eq($(this).index()).show().siblings().hide()
+        $('.right_wraps').eq($(this).index()).addClass('sel').siblings().removeClass('sel')
+    })
+</script>
+<script>
+    $(document).ready(function() {
+        $(".userinfo .user .icon").click(function() {
+            $(this).parents(".user").find(".user_wrap").toggleClass("show");
+        });
+    });
+</script>
+</html>

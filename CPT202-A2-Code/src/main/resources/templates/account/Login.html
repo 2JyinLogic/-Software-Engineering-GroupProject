@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="/account/css/semantic.min.css">
+    <link rel="stylesheet" href="/account/css/header.css">
+    <script src="/account/js/semantic.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+
+</head>
+
+<body>
+<div>
+
+    <header>
+        <div class="logo">Furry Fashion</div>
+        <div class="userinfo">
+            <div class="item user">
+                <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">
+                <i class="icon"></i>
+                <div class="user_wrap">
+                    <a href="/login" id="sign-in-link">Sign In</a>
+                    <a th:href="@{/sign-up}" id="sign-up-link">Sign Up</a>
+                </div>
+            </div>
+            <div class="item home_icon">
+                <img src="https://p1.ssl.qhimg.com/t01d6a6a68b7c4e45a5.png" alt="Home">
+                <a href="/" style="color: white;"> Home</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="ui centered container stackable middle aligned two column grid">
+        <div style="height: 100px" class="row"></div>
+
+        <div class="row">
+            <div class="stretched column">
+                <div class="ui purple message">
+                    <div>New to us? <a th:href="@{/sign-up}">Sign up</a></div>
+
+<!--                    <div>FORGET PASSWORD? <a th:href="@{/verification}">RESET</a></div>-->
+                </div>
+                <div class="ui purple raised very padded segment">
+                    <form class="ui large form" name="f" th:action="@{/login}" method="post">
+                        <h2 style="color:rgb(123 100 171)" class="ui center aligned header">Log in</h2>
+
+                        <div class="field"><label for="username">Username</label>
+                            <div class="ui fluid left icon input">
+                                <input placeholder="Username" id="username"
+                                       name="username" type="text">
+                                <i aria-hidden="true" class="user icon"></i>
+                            </div>
+                        </div>
+                        <div class="field"><label for="Password">Password</label>
+                            <div class="ui fluid left icon input">
+                                <input placeholder="Password" id="password"
+                                       name="password" type="password">
+                                <i aria-hidden="true" class="lock icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="ui fluid large button" id="login-button" type="submit"
+                                    style="background-color:rgb(123 100 171); color:white">Log in
+                            </button>
+                        </div>
+                        <div class="ui negative message" th:if="${param.error}">
+                            Invalid Username or Password.
+                        </div>
+                        <div class="ui negative message" th:if="${param.logout}">
+                            You have been logged out.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="/account/js/index.js"></script>
+
+</body>
+
+</html>

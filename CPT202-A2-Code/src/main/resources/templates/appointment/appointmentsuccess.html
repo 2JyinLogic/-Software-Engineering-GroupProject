@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>
+            You have successfully made an appointment! Now you can...
+        </h1>
+    </head>
+
+    <article>
+    <h1>Upgrade your service to something we up-sell to you:</h1>
+    <h3 data-th-text="${upSellingString}"></h3>
+    <h1>Try something else we cross-sell to you:</h1>
+    <h3 data-th-text="${crossSellingString}"></h3>
+
+    <h2>If you don't like the things we recommended</h2>
+    <a data-th-href="@{/mainpage}">then you can return to your home page</a>
+    <h2>Need help?</h2>
+    <a data-th-href="@{/help}">visit our help page</a>
+    </article>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:data-th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover"/>
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <link rel="stylesheet" href="/appointment/style/header.css">
+    <!-- <link rel="stylesheet" href="./style/index.css"> -->
+    <link rel="stylesheet" href="/appointment/style/r-slide.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="/appointment/js/r-slider.js"></script>
+
+
+    <title>Make Appointments</title>
+
+    <!-- head -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: DD-TTNorms, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --main-theme-color: rgb(123, 100, 171);
+        }
+
+        .container {
+            padding-top: 65px;
+            padding-bottom: 250px;
+            width: auto;
+            margin:10px 500px;
+        }
+
+        .inner {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h2 {
+            font-size: 24px;
+    /* color: var(--main-theme-color); */
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .Select input[type="text"],
+        .Select input[type="number"],
+        .Select input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .Select input[type="date"] {
+            padding: 6px;
+        }
+        .block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .block label {
+            margin-right: 10px;
+        }
+        button[type="submit"]:hover,
+        a:hover {
+            color: #fff;
+            background-color: var(--main-theme-color);
+            cursor: pointer;
+        }
+
+        a {
+            color: var(--main-theme-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button[type="submit"] {
+            background-color: var(--main-theme-color);
+            color: #fff;
+            padding: 10px 40px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            margin: 10px 340px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="home">
+    <header>
+        <div class="logo">Furry Fashion</div>
+        <div class="userinfo">
+<!--            <div class="item user">-->
+<!--                <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">-->
+<!--                <i class="icon"></i>-->
+<!--                <div class="user_wrap">-->
+<!--                    <a th:href="@{/account}">Account</a>-->
+<!--                    <a th:href="@{/history}">Orders</a>-->
+<!--                    <a href="/logout">Sign Out</a>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="item home_icon">
+                <img src="https://p1.ssl.qhimg.com/t01d6a6a68b7c4e45a5.png" alt="Home">
+                <a th:href="@{/mainpage}" style="color: white;"> Home</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="ui negative message" th:if="${param.error}">
+            <p th:text="${param.error}">Invalid input.</p>
+        </div>
+        <form th:action="@{/appointment}" method="POST">
+            <div class="Select">
+                <h3>Pet Name:</h3>
+                <input th:type="text" th:name="petName">
+                <h3>Pet Breed:</h3>
+                <input th:type="text" th:name="petBreed">
+                <h3>Pet Age:</h3>
+                <input th:type="number" th:name="petAge">
+                <h3>Pet Description:</h3>
+                <input th:type="text" th:name="petDescription">
+                <h3>Pet Weight (lbs):</h3>
+                <input th:type="text" th:name="petSize">
+                <h3>Service Name:</h3>
+                <select th:type="text" th:name="serviceName">
+                    <option th:each="service: ${serviceList}" th:text="${service.serviceName}">Service Name</option>
+                </select>
+                <h3>Date:</h3>
+                <input th:type="date" th:name="date">
+                <h3>Groomer Employee ID (Groomers are listed below):</h3>
+                <select th:type="number" th:name="employeeId">
+                    <option th:each="groomer: ${groomerList}" th:text="${groomer.employeeId}">2</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <h2>Service List:</h2>
+        <div class="block">
+            <div th:each="service: ${serviceList}">
+                <h3>Service:</h3>
+                <b>Service Name:</b>
+                <label th:text="${service.serviceName}"></label>
+                <b>Service Type:</b>
+                <label th:text="${service.serviceType}"></label>
+                <b>Service Price:</b>
+                <label th:text="${service.servicePrice}"></label>
+            </div>
+        </div>
+
+        <a th:href="@{/groomer-schedules}">Check groomer schedules here.</a>
+        <h2>Groomers by rank:</h2>
+        <div class="block">
+            <div th:each=" groomer: ${groomerList}">
+                <label th:if="${groomer.rank == 1}"><b>Name:</b></label>
+                <label th:text="${groomer.name}" th:if="${groomer.rank == 1}"></label>
+                <label
+                    th:if="${groomer.rank == 1}"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmployeeId:</b></label>
+                <label th:text="${groomer.employeeId}" th:if="${groomer.rank == 1}"></label>
+            </div>
+        </div>
+        <div class="block">
+            <div th:each=" groomer: ${groomerList}">
+                <label th:if="${groomer.rank == 2}"><b>Name:</b></label>
+                <label th:text="${groomer.name}" th:if="${groomer.rank == 2}"></label>
+                <label
+                    th:if="${groomer.rank == 2}"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmployeeId:</b></label>
+                    <label th:text="${groomer.employeeId}" th:if="${groomer.rank == 2}"></label>
+            </div>
+        </div>
+        <div class="block">
+            <div th:each=" groomer: ${groomerList}">
+                <label th:if="${groomer.rank == 3}"><b>Name:</b></label>
+                <label th:text="${groomer.name}" th:if="${groomer.rank == 3}"></label>
+                <label
+                    th:if="${groomer.rank == 3}"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmployeeId:</b></label>
+                    <label th:text="${groomer.employeeId}" th:if="${groomer.rank == 3}"></label>
+            </div>
+        </div>
+        <div class="block">
+            <div th:each=" groomer: ${groomerList}">
+                <label th:if="${groomer.rank == 4}"><b>Name:</b></label>
+                <label th:text="${groomer.name}" th:if="${groomer.rank == 4}"></label>
+                <label
+                    th:if="${groomer.rank == 4}"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmployeeId:</b></label>
+                    <label th:text="${groomer.employeeId}" th:if="${groomer.rank == 4}"></label>
+            </div>
+        </div>
+        <div class="block">
+            <div th:each=" groomer: ${groomerList}">
+                <label th:if="${groomer.rank == 5}"><b>Name:</b></label>
+                <label th:text="${groomer.name}" th:if="${groomer.rank == 5}"></label>
+                <label
+                    th:if="${groomer.rank == 5}"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EmployeeId:</b></label>
+                    <label th:text="${groomer.employeeId}" th:if="${groomer.rank == 5}"></label>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

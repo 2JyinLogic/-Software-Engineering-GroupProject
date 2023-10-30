@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments1</title>
+    <link rel="stylesheet" href="/orders/style/base.css">
+    <link rel="stylesheet" href="/orders/style/index.css">
+    <link rel="stylesheet" href="/orders/style/lib/bootstrap.css">
+    <link rel="stylesheet" href="/orders/style/header.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <style type="text/css">
+        .edit-btn {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 18px;
+            cursor: pointer;
+            color: #000
+        }
+
+        .p-one-two-col {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 20px;
+            padding-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="logo">Furry Fashion</div>
+    <div class="userinfo">
+        <div class="item user">
+            <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">
+            <i class="icon"></i>
+            <div class="user_wrap">
+                <a th:href="@{/account}">Account</a>
+                <a th:href="@{/history}">Orders</a>
+                <a href="/logout">Sign Out</a>
+            </div>
+        </div>
+        <div class="item home_icon">
+            <img src="https://p1.ssl.qhimg.com/t01d6a6a68b7c4e45a5.png" alt="Home">
+            <a th:href="@{/mainpage}" style="color: white;"> Home</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="box">
+        <header class="page-headers">
+            <font color="Black">Account</font>
+        </header>
+        <div class="con-box">
+            <menu>
+                <ul class="menu-ul">
+                    <li>
+                        <a th:href="@{/account}" id="sign-in-link">Account</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/history}" id="sign-in-link">Orders</a>
+                    </li>
+                </ul>
+            </menu>
+        </div>
+        <div class="right-pet-con">
+            <article class="right-first right-article-con">
+                <header class="right-edit-header">
+                    <font color="Black">Account Information</font>
+                </header>
+<!--                <div style="text-align: right;" class="right-bg-con">-->
+
+<!--                    <span class="edit-btn"><a th:href="@{/account/edit}">Edit</a></span>-->
+<!--                </div>-->
+                <div class="right-bg-con">
+                    <div class="right-white-con" >
+                        <p class="p-one p-one-two-col"><span>Name</span><span th:text="${account.getUsername()}"></span></p>
+                        <p class="p-one p-one-two-col"><span>Email Address</span><span th:text="${user.getUserEmail()}"></span></p>
+                        <p class="p-one p-one-two-col"><span>Password</span><span th:text="${account.getUserPassword()}"></span></p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+
+<!--        <div class="right-pet-con">-->
+<!--            <article class="right-first right-article-con">-->
+<!--                <header class="right-edit-header">-->
+<!--                    <font color="Black">Account Information</font>-->
+<!--                </header>-->
+<!--&lt;!&ndash;                <div style="text-align: right;" class="right-bg-con">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <span class="edit-btn"><a th:href="@{/account/edit}">Edit</a></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--                <div class="right-bg-con">-->
+<!--                    <div class="right-white-con">-->
+<!--                        <p class="p-one p-one-two-col"><span>Email Address</span><span th:text="${account.getUsername()}"></span></p>-->
+<!--                        <p class="p-one p-one-two-col"><span>Password</span><span th:text="${account.getUserPassword()}"></span></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </article>-->
+<!--        </div>-->
+    </div>
+</main>
+
+</body>
+<script src="/orders/js/index.js"></script>
+
+</html>

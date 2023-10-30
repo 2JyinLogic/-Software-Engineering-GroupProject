@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistical Report</title>
+    <style>
+        *{
+            font-family: DD-TTNorms, -apple-system, 
+            BlinkMacSystemFont, "Segoe UI", Roboto, 
+            Helvetica, Arial, sans-serif, "Apple Color Emoji", 
+            "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        #Top{
+            font: 'STSong';
+            background-color: rgb(123, 100, 171, 1);
+            position:absolute;
+            bottom: 90%; 
+            right:0%; left:0%; 
+        }
+        #Home{
+            position: absolute;
+            top:0%;
+            right: 7%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Home_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Logout{
+            position: absolute;
+            top:0%;
+            right: 3%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Logout_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Navigation{
+            background-color: rgb(242, 239, 248);
+            box-shadow: 0px 4px 10px;
+            position:absolute;
+            top:10%; bottom: 83%; 
+            right:0%; left:0%; 
+        }
+        #System_name{
+            font-family: Times New Roman;
+            color: rgb(253, 253, 253); 
+            text-align: center;
+        }
+        #Menu{
+            position:absolute;
+            top:2.5%; 
+            left:2%; 
+        }
+        #Menu_btn1{
+            width: 70px;
+            height: 40px;
+            background-color: #fff;
+            color: rgb(123, 100, 171, 1);
+            border-radius: 5px;
+            border-color: #fff;
+            font-size: 20px;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+        }
+        #Menu_btn1:hover{
+            background-color: rgb(242, 239, 248);
+        }
+        #Menu_window{
+            background-color: rgb(255, 255, 255);
+            display: none;
+            box-shadow: 4px 4px 10px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: rgb(123, 100, 171, 1);
+            position:absolute;
+            top:10%; bottom: 0%;
+            left:0%; right: 80%;
+        }
+        #black{
+            display: none;
+            position: absolute;
+            top:10%; bottom: 0%;
+            left: 0%; right: 0%;
+            background-color: rgba(110, 110, 110, 0.528);   
+        }
+        #Nav_name{
+            font-family: Times New Roman;
+            text-align: center;
+            cursor: pointer;
+        }
+        #Report_type{
+            position:absolute;
+            top:24%; 
+            bottom: 35%;
+            left:20%; 
+            right:20%;
+            height: 500px;
+            border-radius: 5px;
+            border-radius: 3px;
+            border-top-style: solid;
+            border-top-color: rgb(123, 100, 171, 1);
+            box-shadow: 4px 4px 10px;
+        }
+        #Annual_variable{
+            display:block;
+            position:absolute;
+            top:30%; 
+            bottom: 25%;
+            left: 32%;
+            right: 32%;
+            width: 320px;
+        }
+        #Monthly_variable{
+            display:none;
+            position:absolute;
+            top:25%; 
+            bottom: 25%;
+            left: 34%;
+            right: 34%;
+            width: 320px;
+        }
+        #Annual_Confirm_btn{
+            position: absolute; 
+            right: -30%;
+            bottom: 2%;
+            font-size: 100%;
+            width: 90px;
+            height: 30px;
+            background:#dedddd;
+            line-height: 27px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #Monthly_Confirm_btn{
+            position: absolute; 
+            right: -30%;
+            bottom: 2%;
+            font-size: 100%;
+            width: 90px;
+            height: 30px;
+            background:#dedddd;
+            line-height: 27px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #Annual_window{
+            display: none;
+            position: absolute; 
+            left: 27%; 
+            top: 25%; 
+        }
+        #Monthly_window{
+            display: none;
+            position: absolute; 
+            left: 27%; 
+            top: 19%; 
+        }
+        #AYear_select{
+            font-size: 90%;
+            background:#fff;
+            height: 20px;
+            width: 150px;
+            cursor: pointer;
+        }
+        #MYear_select{
+            font-size: 90%;
+            background:#fff;
+            height: 20px;
+            width: 150px;
+            cursor: pointer;
+        }
+        #MMonth_select{
+            font-size: 90%;
+            background:#fff;
+            height: 20px;
+            width: 150px;
+            cursor: pointer;
+        }
+        #Type_intro{
+            position: absolute;
+            bottom: 5%;
+            left: 24%;
+            right: 24%;
+            color: #acacac;
+        }
+        #logo{
+            color: rgb(253, 253, 253); 
+            position: absolute;
+            top:28%;
+            left: 10%;
+            font-size: 38px;
+            font-family: Times New Roman;
+            font-style: italic;
+        }
+        #Annual_Analysis_btn{
+            position: absolute;
+            top: 5%; 
+            left: 15%;
+            width: 150px;
+            height: 40px;
+            line-height: 35px;
+            background: rgb(123, 100, 171);
+            color:  rgb(255, 255, 255);
+            font-size: 18px;
+            border-radius: 15px;
+            border-color: rgb(123, 100, 171, 1);
+            text-align: center;
+            cursor: pointer;
+        }
+        #Monthly_Analysis_btn{
+            position: absolute;
+            top: 5%; 
+            right: 15%;
+            width: 150px;
+            height: 40px;
+            line-height: 35px;
+            background: rgb(242, 239, 248);
+            color: #000000;
+            font-size: 18px;
+            border-radius: 15px;
+            border-color: rgb(123, 100, 171, 1);
+            text-align: center;
+            cursor: pointer;
+        }
+        #intro{
+            position: absolute;
+            left: 28%; 
+            top: 22%; 
+            width: 73%;
+            height: 78%;
+        }
+        .menu{
+            left: 20px; right: 20px;
+            height: 40px; 
+            line-height: 40px;
+            align-items: center;
+            background-color: rgb(255, 255, 255);   
+            text-align: center;
+            font-size: 20px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a2a1a1;
+            cursor: pointer;
+        }
+        .menu:hover{
+            background-color: rgb(240, 240, 240);   
+        }
+        #Master_File{
+            position: absolute;
+            top: 20px; 
+        }
+        #Statistical_Report{
+            position: absolute;
+            top: 65px; 
+        }
+        #Selling_Strategy{
+            position: absolute;
+            top: 110px; 
+        }
+        #Store_Environment{
+            position: absolute;
+            top: 155px; 
+        }
+        #Orders{
+            position: absolute;
+            top: 200px; 
+        }
+        .Input{
+            width: 220px;
+            padding-left: 10px;
+            background: #fff;
+            border-radius: 3px;
+            height: 24px;
+            line-height: 24px;
+            vertical-align: middle;
+            border: 1px solid #9a9a9a;
+        }
+    </style>
+</head>
+<body>
+    <div id = "Top";>
+        <span id="logo">Furry Fashion</span>
+        <span>
+            <h1 id="System_name">
+                Management System
+            </h1> 
+        </span>
+    </div>
+
+    <a th:href="@{/management_system}">
+        <div id="Home">
+            <img id="Home_img" src="/manager/images/home.png" style="width: 45%; height: 40%; position: absolute; left: 16%; top:20%">
+            <p id="Home_name">Home</p>
+        </div>
+    </a>
+
+    <a th:href="@{/logout}">
+        <div id="Logout">
+            <img id="Logout_img" src="/manager/images/logout.png" style="width: 100%; height: 80%;">
+            <p id="Logout_name">Log out</p>
+        </div>
+    </a>
+
+    <div id="Navigation">
+        <h2 id="Nav_name">Statistical Report</h2>
+    </div>
+
+    <div id="Report_type">
+        <button id="Annual_Analysis_btn" style="font-size: 100%; cursor: pointer;"><b>Annual Analysis</b></button>
+        <button id="Monthly_Analysis_btn" style="font-size: 100%; cursor: pointer;"><b>Monthly Analysis</b></button>
+        <div id="Type_intro"><h4>Please select the type and time span of your report here.</h4></div>
+        <div id="Annual_variable">
+            <form th:action="@{/manager/statistical-reports/annual-report}" method="POST">
+                <div class="Select">
+                    <label style="font-size: 25px;">Please fill in the year: </label>
+                    <input th:type="number" th:name="annualyear" class="Input" id="AYear_select">
+                </div>
+                <button id="Annual_Confirm_btn" type="submit">Confirm</button>
+            </form>
+        </div>
+        <div id="Monthly_variable">
+            <form th:action="@{/manager/statistical-reports/monthly-report}" method="POST">
+                <div>
+                    <div class="Select">
+                        <label style="font-size: 25px;">Please fill in the year: </label>
+                        <input th:type="number" th:name="monthlyyear" class="Input" id="MYear_select">
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <div class="Select">
+                        <label style="font-size: 25px;">Please fill in the month: </label>
+                        <input th:type="number" th:name="month" class="Input" id="MMonth_select">
+                    </div>
+                </div>
+                <div>
+                    <button id="Monthly_Confirm_btn" type="submit">Confirm</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div th:if="${monthIllegalError}" role="alert" style="color: crimson; position: absolute; top: 20%; left: 35%;">
+        <span th:text="${monthIllegalError}"></span>
+    </div>
+
+    <div th:if="${annualReportNullError}" role="alert" style="color: crimson; position: absolute; top: 20%; left: 44%;">
+        <span th:text="${annualReportNullError}">Year cannot be null.</span>
+    </div>
+
+    <div th:if="${monthReportNullErrorYear}" role="alert" style="color: crimson; position: absolute; top: 20%; left: 44%;">
+        <span th:text="${monthReportNullErrorYear}">Year cannot be null.</span>
+    </div>
+
+    <div th:if="${monthReportNullErrorMonth}" role="alert" style="color: crimson; position: absolute; top: 20%; left: 44%;">
+        <span th:text="${monthReportNullErrorMonth}">Year cannot be null.</span>
+    </div>
+
+    <div th:if="${monthReportNullErrorYearMonth}" role="alert" style="color: crimson; position: absolute; top: 20%; left: 40%;">
+        <span th:text="${monthReportNullErrorYearMonth}">Year cannot be null.</span>
+    </div>
+
+
+    <div id = "Menu">
+        <button id="Menu_btn1">Menu</button>
+    </div>
+
+    <div id="black">
+    </div>
+
+    <div id="Menu_window">
+        <a th:href="@{/manager/master-file}">
+            <div id = "Master_File" class="menu">
+                Master File
+            </div>
+        </a>
+        <a th:href="@{/manager/statistical-reports}">
+            <div id = "Statistical_Report" class="menu">
+                Statistical Report
+            </div>
+        </a>
+        <a th:href="@{/manager/SellingStrategy}">
+            <div id = "Selling_Strategy" class="menu">
+                Selling Strategy
+            </div>
+        </a>
+        <a th:href="@{/manager/shop-appearance/find-all}">
+            <div id = "Store_Environment" class="menu">
+                Store Environment
+            </div>
+        </a>
+        <a th:href="@{/manager/managerorders}">
+            <div id = "Orders" class="menu">
+                Orders
+            </div>
+        </a>
+    </div>
+
+    
+    <script>
+        var Menu_btn1=document.getElementById("Menu_btn1")
+        var Menu_window=document.getElementById("Menu_window")
+        var black=document.getElementById("black")
+        var click_num=0;
+        Menu_btn1.onclick=function(){
+            if(click_num==0){
+                Menu_window.style.display="block";
+                black.style.display="block";
+                click_num++;
+            }
+            else{
+                Menu_window.style.display="none";
+                black.style.display="none";
+                click_num--;
+            }
+        }
+
+        var Annual_Analysis_btn=document.getElementById("Annual_Analysis_btn")
+        var Annual_variable=document.getElementById("Annual_variable")
+        var Monthly_Analysis_btn=document.getElementById("Monthly_Analysis_btn")
+        var Monthly_variable=document.getElementById("Monthly_variable")
+        Annual_Analysis_btn.onclick=function(){
+            Annual_Analysis_btn.style.backgroundColor="rgb(123, 100, 171, 1)";
+            Annual_Analysis_btn.style.color="rgb(255, 255, 255, 1)";
+            Monthly_Analysis_btn.style.backgroundColor="rgb(242, 239, 248)";
+            Monthly_Analysis_btn.style.color="rgb(0, 0, 0, 1)";
+            Annual_variable.style.display="block";
+            Monthly_variable.style.display="none";
+        }
+        Monthly_Analysis_btn.onclick=function(){
+            Monthly_Analysis_btn.style.backgroundColor="rgb(123, 100, 171, 1)";
+            Monthly_Analysis_btn.style.color="rgb(255, 255, 255, 1)";
+            Annual_Analysis_btn.style.backgroundColor="rgb(242, 239, 248)";
+            Annual_Analysis_btn.style.color="rgb(0, 0, 0, 1)";
+            Annual_variable.style.display="none";
+            Monthly_variable.style.display="block";
+        }
+
+        var Annual_window=document.getElementById("Annual_window")
+        var Annual_Confirm_btn=document.getElementById("Annual_Confirm_btn")
+        var intro=document.getElementById("intro")
+        Annual_Confirm_btn.onclick=function(){
+            Annual_window.style.display="block";
+            Monthly_window.style.display="none";
+            intro.style.display="none";
+        }   
+        var Monthly_window=document.getElementById("Monthly_window")
+        var Monthly_Confirm_btn=document.getElementById("Monthly_Confirm_btn")
+        Monthly_Confirm_btn.onclick=function(){
+            Monthly_window.style.display="block";
+            Annual_window.style.display="none";
+            intro.style.display="none";
+        }   
+
+        var Nav_name=document.getElementById("Nav_name")
+        Nav_name.onclick=function(){
+            intro.style.display="block";
+            Monthly_window.style.display="none";
+            Annual_window.style.display="none";
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help</title>
+  <link rel="stylesheet" href="/main_and_help_page/style/help.css">
+  <link rel="stylesheet" href="/main_and_help_page/style/header.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+</head>
+
+<body>
+  <div class="home">
+    <header>
+      <div class="logo">Furry Fashion</div>
+      <div class="userinfo">
+        <div class="item user">
+          <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">
+          <i class="icon"></i>
+          <div class="user_wrap">
+            <a th:href="@{/my/profile}">My Account</a>
+            <a th:href="@{/appointment}">Make Appointments</a>
+            <a href="">Sign Out</a>
+          </div>
+        </div>
+        <div class="item home_icon">
+          <img src="https://p1.ssl.qhimg.com/t01d6a6a68b7c4e45a5.png" alt="Home">
+          <a th:href="@{/mainpage}" style="color: white;"> Home</a>
+        </div>
+      </div>
+    </header>  
+  
+
+    <main>
+      <div class="help_wrap">
+        <div class="left">
+          <h3 class="title">Help</h3>
+          <ul>
+            <li data-th-each="article: ${articleList}">
+                <a 
+                href="google.com" data-th-href="@{help/article(name=${article.name})}" 
+                data-th-text="${article.title}">
+                Title
+                </a>
+            </li>
+        </ul>
+        </div>
+
+        <div class="right">
+          <div class="cover"><img src="/main_and_help_page/images/header.png" alt=""></div>      
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+<script src="/main_and_help_page/js/help.js"></script>
+<script src="/main_and_help_page/js/index.js"></script>
+</html>

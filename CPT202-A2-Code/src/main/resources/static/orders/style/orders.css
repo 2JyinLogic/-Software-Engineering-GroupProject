@@ -1,0 +1,132 @@
+body{
+    background-color: #f1f1f1;
+}
+.orders-box{
+    padding:20px
+}
+.orders-header{
+    margin-bottom: 10px;
+}
+.headers-span{
+    font-size: 18px;
+    font-weight: bold;
+    color: #242527;
+}
+.search-btn{
+    color: #367889;
+    border: 1px solid #367889;
+    padding:2px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: bold;
+}
+.sort-div-box{
+    display: flex;
+    justify-content: space-between
+}
+.sort-span{
+    border-right: 1px solid #242527;
+    padding-right: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.sort-span:last-child{
+    border-right: none;
+}
+.sort-span-txt{
+    color: #367889;
+    font-weight: bold;
+}
+.sort-right-input{
+width: 150px;
+padding-left: 10px;
+background:#fff;
+border-radius: 3px;
+height: 24px;
+line-height: 24px;
+vertical-align: middle;
+border:1px solid #9a9a9a;
+
+}
+.sort-div-box-2{
+    margin:10px 0;
+}
+.sort-select{
+    background:#fff;
+    height: 25px;
+    border:1px solid #8a8a8a;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+.sort-select1{
+    width: 150px;
+}
+.sort-select2{
+    width: 100px;
+    margin-left: 20px;
+}
+.filter-input{
+    background: #fff;
+    border:1px solid #9a9a9a;
+    height: 26px;
+    padding-left: 10px;
+    border-radius: 3px;
+    margin-left:10px;
+    font-size: 12px;
+    width: 180px;
+    vertical-align: middle;
+}
+.b-c{
+    color: #0175af;
+    font-weight: bold;
+}
+.process-btn{
+    width: 120px;
+    height: 35px;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 35px;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 35px;
+    font-weight: bold;
+}
+.process-btn-green{
+    color: rgb(122,154,86);
+    background:rgb(122,154,86,0.3)
+}
+.process-btn-blue{
+    color: rgb(40,57,67);
+    background:rgb(40,57,67,0.3)
+}
+.process-btn-cancel{
+    color: rgb(130,130,130);
+    background:rgb(130,130,130,0.3)
+}
+.process-btn-hold{
+    color: rgb(144,115,44);
+    background:rgb(144,115,44,0.3)
+}
+.underline{
+    text-decoration:underline;
+    display: block;
+}
+.table-box{
+    margin-top: 30px;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,0.02) !important;
+}
+.table td, .table th{
+    border-top: none !important;
+}
+.table{
+    border: 1px solid #ccc;
+}
+.table thead th{
+    border-bottom-width: 1px !important;
+}

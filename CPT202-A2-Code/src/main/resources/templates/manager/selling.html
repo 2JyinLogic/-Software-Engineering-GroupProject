@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selling Strategy</title>
+    <style>
+        *{
+            font-family: DD-TTNorms, -apple-system, 
+            BlinkMacSystemFont, "Segoe UI", Roboto, 
+            Helvetica, Arial, sans-serif, "Apple Color Emoji", 
+            "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        #Top{
+            font: 'STSong';
+            background-color: rgb(123, 100, 171, 1);
+            position:absolute;
+            bottom: 90%; 
+            right:0%; left:0%; 
+        }
+        #Home{
+            position: absolute;
+            top:0%;
+            right: 7%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Home_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Logout{
+            position: absolute;
+            top:0%;
+            right: 3%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Logout_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Navigation{
+            background-color: rgb(242, 239, 248);
+            box-shadow: 0px 4px 10px;
+            position:absolute;
+            top:10%; bottom: 83%; 
+            right:0%; left:0%; 
+        }
+        #System_name{
+            font-family: Times New Roman;
+            color: rgb(253, 253, 253); 
+            text-align: center;
+        }
+        #logo{
+            color: rgb(253, 253, 253); 
+            position: absolute;
+            top:28%;
+            left: 10%;
+            font-size: 38px;
+            font-family: Times New Roman;
+            font-style: italic;
+        }
+        #Menu{
+            position:absolute;
+            top:2.5%; 
+            left:2%; 
+        }
+        #Menu_btn1{
+            width: 70px;
+            height: 40px;
+            background-color: #fff;
+            color: rgb(123, 100, 171, 1);
+            border-radius: 5px;
+            border-color: #fff;
+            font-size: 20px;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+        }
+        #Menu_btn1:hover{
+            background-color: rgb(242, 239, 248);
+        }
+        #Menu_window{
+            background-color: rgb(255, 255, 255);
+            display: none;
+            box-shadow: 4px 4px 10px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: rgb(123, 100, 171, 1);
+            position:absolute;
+            top:10%; bottom: 0%;
+            left:0%; right: 80%;
+        }
+        #black{
+            display: none;
+            position: absolute;
+            top:10%; bottom: 0%;
+            left: 0%; right: 0%;
+            background-color: rgba(110, 110, 110, 0.528);   
+        }
+        #Nav_name{
+            font-family: Times New Roman;
+            text-align: center;
+        }
+        .menu{
+            left: 20px; right: 20px;
+            height: 40px; 
+            line-height: 40px;
+            align-items: center;
+            background-color: rgb(255, 255, 255);   
+            text-align: center;
+            font-size: 20px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a2a1a1;
+            cursor: pointer;
+        }
+        .menu:hover{
+            background-color: rgb(240, 240, 240);   
+        }
+        #Master_File{
+            position: absolute;
+            top: 20px; 
+        }
+        #Statistical_Report{
+            position: absolute;
+            top: 65px; 
+        }
+        #Selling_Strategy{
+            position: absolute;
+            top: 110px; 
+        }
+        #Store_Environment{
+            position: absolute;
+            top: 155px; 
+        }
+        #Orders{
+            position: absolute;
+            top: 200px; 
+        }
+        #Filter{
+            font-size: 130%;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 20%;
+            left: 2%; 
+        }
+        #Up_btn{
+            width: 230px;
+            height: 40px;
+            line-height: 35px;
+            background: rgb(123, 100, 171);
+            color:  rgb(255, 255, 255);
+            font-size: 18px;
+            border-radius: 15px;
+            border-color: rgb(123, 100, 171, 1);
+            text-align: center;
+            cursor: pointer;
+        }
+        #Cross_btn{
+            width: 230px;
+            height: 40px;
+            line-height: 35px;
+            background: rgb(242, 239, 248);
+            color:  rgb(0, 0, 0);
+            font-size: 18px;
+            border-radius: 15px;
+            border-color: rgb(123, 100, 171, 1);
+            text-align: center;
+            cursor: pointer;
+        }
+        #Filter{
+            position: absolute;
+            top: 20%;
+            left: 2%;
+            width: 30%;
+            height: 6%;
+        }
+        #Up_window{
+            display: flex;
+            margin-top: 13%;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        #Cross_window{
+            display: none;
+            margin-top: 13%;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .Up_Strategy{
+            width: 39%;
+            height: 200px;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            margin-left: 5%;
+            margin-right: 5%;
+            border-style: solid;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: #606266;
+        }
+        .Cross_Strategy{
+            width: 39%;
+            height: 250px;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            margin-left: 5%;
+            margin-right: 5%;
+            border-style: solid;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: #606266;
+        }
+        /* #Up_Strategy1{
+            position: absolute;
+            left: 2%; right: 52.5%;
+            top: 0%; bottom: 50%;
+            border-style: solid;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: #606266;
+        }
+        #Up_Strategy2{
+            position: absolute;
+            left: 52.5%; right: 3%;
+            top: 0%; bottom: 50%;
+            border-style: solid;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: #606266;
+        } */
+        .Stategy_id{
+            position: relative;
+            left: 1%; top: 3%;
+            color: #367889;
+            font-size: 20px;
+            text-decoration: underline;
+        }
+        .Past_purchase{
+            position: relative;
+            left:3%;
+            top:15%;
+            width: 220px;
+            height: 100px;
+            border-style: solid;
+            border-radius: 80px;  
+            border-color:rgb(130,130,130);
+            background-color: rgb(130,130,130,0.3);
+            text-align: center;     
+        }
+        .Past_purchase2{
+            position: relative;
+            left:3%;
+            top: 5%;
+            width: 220px;
+            height: 100px;
+            border-style: solid;
+            border-radius: 80px;  
+            border-color:rgb(130,130,130);
+            background-color: rgb(130,130,130,0.3);
+            text-align: center;     
+        }
+        .Line{
+            position: relative;
+            top: -33%;
+            left: 1%;
+            text-align: center;
+        }
+        .Line2{
+            position: relative;
+            top: -33%;
+            left: 0%; 
+            text-align: center;
+        }
+        .Up_service{
+            position: relative;
+            left:56%;
+            top:-80%;
+            width: 220px;
+            height: 100px;
+            border-style: solid;
+            border-radius: 80px;  
+            border-color:rgb(122,154,86);
+            background-color: rgb(122,154,86,0.3);
+            text-align: center;  
+        }
+        .Cross_service{
+            position: relative;
+            left:13%;
+            top:13%;
+            width: 400px;
+            height: 160px;
+            border-style: solid;
+            border-radius: 70px;  
+            border-color:rgb(122,154,86);
+            background-color: rgb(122,154,86,0.3);
+            text-align: center;  
+        }
+        #Add_black{
+            display: none;
+            position: absolute;
+            top:17%; bottom: 0%;
+            left: 0%; right: 0%;
+            background-color: rgba(110, 110, 110, 0.528);   
+        }
+        .Add_btn{
+            position: absolute;
+            right: 5%;
+            top: 11.5%;
+            font-size: 100%;
+            width: 60px;
+            height: 30px;
+            background:#dedddd;
+            line-height: 27px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .Service_name{
+            line-height: 1%;
+            font-size: 20px;
+        }
+        .CService_name{
+            margin-top: -6%;
+            text-align: center;
+            font-size: 20px;
+        }
+        .Date{
+            position: relative;
+            left:65%;
+            top:-160%;
+        }
+        .Date2{
+            position: relative;
+            left:65%;
+            top:-168%;
+        }
+        .Delete{
+            position:relative;
+            left: 80%;
+            top: -80%
+        }
+        .Delete_btn{
+            font-size: 100%;
+            width: 90px;
+            height: 30px;
+            background:#ffcaca;
+            line-height: 27px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #Cross_Strategy1{
+            position: absolute;
+            left: 2%; right: 52.5%;
+            top: 0%; bottom: 50%;
+            border-style: solid;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: #606266;
+        }
+        #Up_Add_window{
+            display: none;
+            position: absolute;
+            left: 30%; right: 30%;
+            top: 30%; bottom: 30%;
+            border-style: solid;
+            box-shadow: 4px 4px 10px;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: #606266;
+            background-color: #ffffff;
+        }
+        #AddConcel_btn{
+            position: absolute;
+            left: 5%;
+            bottom: 3%;
+            font-size: 100%;
+            width: 90px;
+            height: 30px;
+            background:#dedddd;
+            line-height: 27px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #AddConfirm_btn{
+            position: absolute;
+            right: 5%;
+            bottom: 3%;
+            font-size: 100%;
+            width: 90px;
+            height: 30px;
+            background:rgb(122,154,86,0.3);
+            line-height: 27px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #AddConcel_btn2{
+            position: absolute;
+            left: 5%;
+            bottom: 3%;
+            font-size: 100%;
+            width: 90px;
+            height: 30px;
+            background:#dedddd;
+            line-height: 27px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #AddConfirm_btn2{
+            position: absolute;
+            right: 5%;
+            bottom: 3%;
+            font-size: 100%;
+            width: 90px;
+            height: 30px;
+            background:rgb(122,154,86,0.3);
+            line-height: 27px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        .Add_msg{
+            margin-left: 5%;
+            margin-right: 5%;
+            font-size: 15px
+        }
+        .Input{
+            width: 220px;
+            padding-left: 10px;
+            background:#fff;
+            border-radius: 3px;
+            height: 24px;
+            line-height: 24px;
+            vertical-align: middle;
+            border-style: solid; 
+            border-color: #9a9a9a;;           
+            border-width: 1px;
+        }
+        .UAdd_select{
+            font-size: 100%;
+            background:#fff;
+            height: 25px;
+            border:1px solid #8a8a8a;
+            border-radius: 3px;
+            vertical-align: middle;
+            width: 100px;
+            cursor: pointer;
+        }
+        #Cross_Add_window{
+            display: none;
+            position: absolute;
+            left: 30%; right: 30%;
+            top: 30%; bottom: 30%;
+            border-style: solid;
+            box-shadow: 4px 4px 10px;
+            border-radius: 8px;
+            border-width: 1px;
+            border-color: #606266;
+            background-color: #ffffff;
+        }
+        .Delete_input{
+            width: 220px;
+            padding-left: 10px;
+            background:#fff;
+            border-radius: 3px;
+            height: 24px;
+            line-height: 24px;
+            vertical-align: middle;
+            border:1px solid #9a9a9a;
+        }
+        #Up_Delete{
+            display: block;
+            position: absolute;
+            right: 5%;
+            top: 20%;
+        }
+        #Cross_Delete{
+            display: none;
+            position: absolute;
+            right: 5%;
+            top: 20%;
+        }
+        #Cross_Add_btn{
+            display: none;
+        }
+        #Selects{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="Filter">
+        <button id="Up_btn"><b>Up-selling Strategy</b></button>
+        <button id="Cross_btn"><b>Cross-selling Strategy</b></button>
+    </div>
+
+    <div id = "Top";>
+        <span id="logo">Furry Fashion</span>
+        <span>
+            <h1 id="System_name">
+                Management System
+            </h1> 
+        </span>
+    </div>
+
+    <div id="Up_window">
+        <!-- Up View -->
+        <div class="Up_Strategy" th:each="upSellingStrategy : ${upSellingStrategyList}">
+            <div class="Stategy_id">
+                <label ><b>Strategy ID: </b></label>
+                <label th:text="${upSellingStrategy.id}" class="Strategy_name"></label>
+            </div>
+            <div class="Past_purchase">
+                <p>Past Purchase:</p>
+                <p th:text="${upSellingStrategy.lowServiceName}" class="Service_name"><b></b></p>
+            </div>
+            <div class="Line">
+                <h1>---></h1>
+            </div> 
+            <div class="Up_service">
+                <p>Up-selling Strategy:</p>
+                <p th:text="${upSellingStrategy.highServiceName}" class="Service_name" id="UService_name_u1"><b></b></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="Cross_window">
+        <!-- Cross View -->
+        <div class="Cross_Strategy" th:each="crossSellingStrategy : ${crossSellingStrategyList}">
+            <div class="Stategy_name">
+                <label ><b>Strategy Name: </b></label>
+                <label th:text="${crossSellingStrategy.name}" class="Strategy_name"></label>
+            </div>
+            <div class="Stategy_id">
+                <label ><b>Strategy ID: </b></label>
+                <label th:text="${crossSellingStrategy.id}" class="Strategy_id"></label>
+            </div>
+            <div class="Cross_service">
+                <p>Product Bundle:</p>
+                <p th:text="${crossSellingStrategy.ServiceA}" class="Service_name"><b></b></p>
+                <p th:text="${crossSellingStrategy.serviceB}" class="Service_name"><b></b></p>
+                <p th:text="${crossSellingStrategy.serviceC}" class="Service_name"><b></b></p>
+                <p th:text="${crossSellingStrategy.serviceD}" class="Service_name"><b></b></p>
+                <p th:text="${crossSellingStrategy.serviceE}" class="Service_name"><b></b></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="Up_Delete">
+        <form th:action="@{/manager/SellingStrategy/DeleteUp}" th:method="DELETE" th:object="${upSellingStrategyDelete}">
+            <input th:field="*{id}" class="Delete_input" type="text" placeholder="use strategy id to delete">
+            <button class="Delete_btn" type="submit" onclick="return confirm('Sure to Delete?')">Delete</button>
+        </form>
+        <div th:if="${deleteError}" class="alert alert-danger" role="alert" style="color: crimson;">
+            <span th:text="${deleteError}"></span>
+        </div>
+
+        <div th:if="${deleteSuccess}" class="alert alert-danger" role="alert" style="color: green;">
+            <span th:text="${deleteSuccess}"></span>
+        </div>
+    </div>
+
+    <div id="Cross_Delete">
+        <form th:action="@{/manager/SellingStrategy/DeleteCross}" th:method="DELETE" th:object="${crossSellingStrategyDelete}">
+            <input th:field="*{id}" class="Delete_input" type="text" placeholder="use strategy id to delete">
+            <button class="Delete_btn" type="submit" onclick="return confirm('Sure to Delete?')">Delete</button>
+        </form>
+        
+        <div th:if="${deleteError}" class="alert alert-danger" role="alert" style="color: crimson;">
+            <span th:text="${deleteError}"></span>
+        </div>
+
+        <div th:if="${deleteSuccess}" class="alert alert-danger" role="alert" style="color: green;">
+            <span th:text="${deleteSuccess}"></span>
+        </div>
+    </div>
+
+    <a th:href="@{/management_system}">
+        <div id="Home">
+            <img id="Home_img" src="/manager/images/home.png" style="width: 45%; height: 40%; position: absolute; left: 16%; top:20%">
+            <p id="Home_name">Home</p>
+        </div>
+    </a>
+
+    <a th:href="@{/logout}">
+        <div id="Logout">
+            <img id="Logout_img" src="/manager/images/logout.png" style="width: 100%; height: 80%;">
+            <p id="Logout_name">Log out</p>
+        </div>
+    </a>
+
+    <div id="Navigation">
+        <h2 id="Nav_name">Selling Strategy</h2>
+    </div>
+
+    <div id = "Menu">
+        <button id="Menu_btn1">Menu</button>
+    </div>
+
+    <div id="Up_Add">
+        <button id="Up_Add_btn" class="Add_btn">Add</button>
+    </div>
+
+    <div id="Cross_Add">
+        <button id="Cross_Add_btn" class="Add_btn">Add</button>
+    </div>
+
+    <div id="Add_black">
+    </div>
+    <div id="Up_Add_window">
+        <form th:action="@{/manager/SellingStrategy/AddUp}" method="POST" th:object="${upSellingStrategyAdd}">
+            <div class="Add_msg">
+                <h3 style="text-align: center;">Add new up-selling strategy</h3>
+                <br><label style="font-size: 15px;">Past Purchase: </label>
+                <select th:type="text" th:field="*{lowServiceName}">
+                    <option th:each="service: ${serviceList}" th:value="${service.serviceName}" th:text="${service.serviceName}">Service Name</option>
+                </select>
+                <h5>  <br>  </h5>
+                <label style="font-size: 15px;">Up-selling Service: </label>
+                <select th:type="text" th:field="*{highServiceName}">
+                    <option th:each="service: ${serviceList}" th:value="${service.serviceName}" th:text="${service.serviceName}">Service Name</option>
+                </select>
+            </div>
+            <div>
+                <button id="AddConfirm_btn" type="submit">Confirm</button>
+            </div>
+        </form>
+        <button id="AddConcel_btn">Cancel</button>
+    </div>
+
+    <div id="Cross_Add_window">
+        <form th:action="@{/manager/SellingStrategy/AddCross}" method="POST" th:object="${crossSellingStrategyAdd}">
+            <div class="Add_msg">
+            <h3 style="text-align: center;">Add new cross-selling strategy</h3>
+            <label>Strategy Name: </label>
+            <input th:field="*{name}" class="Add_input" type="text" placeholder="give strategy a name">
+            <p style="font-size: 15px;">Set Meal: </p>
+            <div id="Selects">
+                <select th:type="text" th:field="*{serviceA}">
+                    <option th:each="service: ${serviceList}" th:value="${service.serviceName}" th:text="${service.serviceName}">Service Name</option>
+                </select>
+                <select th:type="text" th:field="*{serviceB}">
+                    <option th:each="service: ${serviceList}" th:value="${service.serviceName}" th:text="${service.serviceName}">Service Name</option>
+                </select>
+                <select th:type="text" th:field="*{serviceC}">
+                    <option th:each="service: ${serviceList}" th:value="${service.serviceName}" th:text="${service.serviceName}">Service Name</option>
+                </select>
+                <select th:type="text" th:field="*{serviceD}">
+                    <option th:each="service: ${serviceList}" th:value="${service.serviceName}" th:text="${service.serviceName}">Service Name</option>
+                </select>
+                <select th:type="text" th:field="*{serviceE}">
+                    <option th:each="service: ${serviceList}" th:value="${service.serviceName}" th:text="${service.serviceName}">Service Name</option>
+                </select>
+            </div>
+            <p style="position: absolute; top: 65%; left: 18%; color: #9a9a9a;">If you don't need five services, you can select "Null"</p>
+            <div>
+                <button id="AddConfirm_btn2">Confirm</button>
+            </div>
+        </div>
+        </form>     
+        <button id="AddConcel_btn2">Cancel</button>
+    </div>
+
+    <div id="black">
+    </div>
+    <div id="Menu_window">
+        <a th:href="@{/manager/master-file}">
+            <div id = "Master_File" class="menu">
+                Master File
+            </div>
+        </a>
+        <a th:href="@{/manager/statistical-reports}">
+            <div id = "Statistical_Report" class="menu">
+                Statistical Report
+            </div>
+        </a>
+        <a th:href="@{/manager/SellingStrategy}">
+            <div id = "Selling_Strategy" class="menu">
+                Selling Strategy
+            </div>
+        </a>
+        <a th:href="@{/manager/shop-appearance/find-all}">
+            <div id = "Store_Environment" class="menu">
+                Store Environment
+            </div>
+        </a>
+        <a th:href="@{/manager/managerorders}">
+            <div id = "Orders" class="menu">
+                Orders
+            </div>
+        </a>
+    </div>
+
+    <script>
+        var Master_File=document.getElementById("Master_File")
+        var Statistical_Report=document.getElementById("Statistical_Report")
+        var Selling_Strategy=document.getElementById("Selling_Strategy")
+        var Store_Environment=document.getElementById("Store_Environment")
+        var COrders=document.getElementById("Orders")
+        Master_File.onclick=function(){
+            window.open("/master_file","_self");
+        }
+        Statistical_Report.onclick=function(){
+            window.open("/statistical_reports","_self");
+        }
+        Selling_Strategy.onclick=function(){
+            window.open("/strategies/up_selling","_self");
+        }
+        Store_Environment.onclick=function(){
+            window.open("/store_environment","_self");
+        }
+        Orders.onclick=function(){
+            window.open("/orders","_self");
+        }
+        
+        var Home=document.getElementById("Home")
+        Home.onclick=function(){
+            window.open("/management_system", "_self");
+        }
+
+        var Logout=document.getElementById("Logout")
+        Logout.onclick=function(){
+            window.open("/login", "_self");
+        }
+        var Menu_btn1=document.getElementById("Menu_btn1")
+        var Menu_window=document.getElementById("Menu_window")
+        var black=document.getElementById("black")
+        var click_num=0;
+        Menu_btn1.onclick=function(){
+            if(click_num==0){
+                Menu_window.style.display="block";
+                black.style.display="block";
+                click_num++;
+            }
+            else{
+                Menu_window.style.display="none";
+                black.style.display="none";
+                click_num--;
+            }
+        }
+
+        var Up_btn=document.getElementById("Up_btn")
+        var Cross_btn=document.getElementById("Cross_btn")
+        var Up_window=document.getElementById("Up_window")
+        var Cross_window=document.getElementById("Cross_window")
+        var Up_Add_btn=document.getElementById("Up_Add_btn")
+        var Cross_Add_btn=document.getElementById("Cross_Add_btn")
+        var Up_Delete=document.getElementById("Up_Delete")
+        var Cross_Delete=document.getElementById("Cross_Delete")
+        Up_btn.onclick=function(){
+            Up_window.style.display="flex";
+            Cross_window.style.display="none";
+            Up_btn.style.backgroundColor="rgb(123, 100, 171, 1)";
+            Up_btn.style.color="rgb(255, 255, 255, 1)";
+            Cross_btn.style.backgroundColor="rgb(242, 239, 248)";
+            Cross_btn.style.color="rgb(0, 0, 0, 1)";
+            Up_Add_btn.style.display="block";
+            Cross_Add_btn.style.display="none";
+            Up_Delete.style.display="block";
+            Cross_Delete.style.display="none";
+        }
+        Cross_btn.onclick=function(){
+            Up_window.style.display="none";
+            Cross_window.style.display="flex";
+            Cross_btn.style.backgroundColor="rgb(123, 100, 171, 1)";
+            Cross_btn.style.color="rgb(255, 255, 255, 1)";
+            Up_btn.style.backgroundColor="rgb(242, 239, 248)";
+            Up_btn.style.color="rgb(0, 0, 0, 1)";
+            Up_Add_btn.style.display="none";
+            Cross_Add_btn.style.display="block";
+            Up_Delete.style.display="none";
+            Cross_Delete.style.display="block";
+        } 
+        //Up add
+        var Up_Add_btn=document.getElementById("Up_Add_btn");
+        var Up_Add_window=document.getElementById("Up_Add_window");
+        var Add_black=document.getElementById("Add_black");
+        Up_Add_btn.onclick=function(){
+            Add_black.style.display="block";
+            Up_Add_window.style.display="block";
+        }
+
+        var AddConcel_btn=document.getElementById("AddConcel_btn")
+        var AddConfirm_btn=document.getElementById("AddConfirm_btn")
+        AddConcel_btn.onclick=function(){
+            Add_black.style.display="none";
+            Up_Add_window.style.display="none";
+        }
+        AddConfirm_btn.onclick=function(){
+            Add_black.style.display="none";
+            Up_Add_window.style.display="none";
+        }
+
+        //Cross add
+        var Cross_Add_btn=document.getElementById("Cross_Add_btn");
+        var Cross_Add_window=document.getElementById("Cross_Add_window");
+        Cross_Add_btn.onclick=function(){
+            Add_black.style.display="block";
+            Cross_Add_window.style.display="block";
+        }
+
+        var AddConcel_btn2=document.getElementById("AddConcel_btn2")
+        var AddConfirm_btn2=document.getElementById("AddConfirm_btn2")
+        AddConcel_btn2.onclick=function(){
+            Add_black.style.display="none";
+            Cross_Add_window.style.display="none";
+        }
+        AddConfirm_btn2.onclick=function(){
+            Add_black.style.display="none";
+            Cross_Add_window.style.display="none";
+        }
+    </script>      
+</body>
+</html>

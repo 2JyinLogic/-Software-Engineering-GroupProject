@@ -1,0 +1,1 @@
+DELETE FROM `user_master_file_item`;

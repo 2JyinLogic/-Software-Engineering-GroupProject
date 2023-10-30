@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <style>
+        *{
+            font-family: DD-TTNorms, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Roboto,
+            Helvetica, Arial, sans-serif, "Apple Color Emoji",
+            "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        #Top{
+            font: 'STSong';
+            background-color: rgb(123, 100, 171, 1);
+            position:absolute;
+            bottom: 90%;
+            right:0%; left:0%;
+        }
+        #Home{
+            position: absolute;
+            top:0%;
+            right: 7%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Home_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Logout{
+            position: absolute;
+            top:0%;
+            right: 3%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Logout_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Navigation{
+            background-color: rgb(242, 239, 248);
+            box-shadow: 0px 4px 10px;
+            position:absolute;
+            top:10%; bottom: 83%;
+            right:0%; left:0%;
+        }
+        #System_name{
+            font-family: Times New Roman;
+            color: rgb(253, 253, 253);
+            text-align: center;
+        }
+        #logo{
+            color: rgb(253, 253, 253);
+            position: absolute;
+            top:28%;
+            left: 10%;
+            font-size: 38px;
+            font-family: Times New Roman;
+            font-style: italic;
+        }
+        #Menu{
+            position:absolute;
+            top:2.5%;
+            left:2%;
+        }
+        #Menu_btn1{
+            width: 70px;
+            height: 40px;
+            background-color: #fff;
+            color: rgb(123, 100, 171, 1);
+            border-radius: 5px;
+            border-color: #fff;
+            font-size: 20px;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+        }
+        #Menu_btn1:hover{
+            background-color: rgb(242, 239, 248);
+        }
+        #Menu_window{
+            background-color: rgb(255, 255, 255);
+            display: none;
+            box-shadow: 4px 4px 10px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: rgb(123, 100, 171, 1);
+            position:absolute;
+            top:10%; bottom: 0%;
+            left:0%; right: 80%;
+        }
+        #black{
+            display: none;
+            position: absolute;
+            top:10%; bottom: 0%;
+            left: 0%; right: 0%;
+            background-color: rgba(110, 110, 110, 0.528);
+        }
+        #Nav_name{
+            font-family: Times New Roman;
+            text-align: center;
+        }
+        .menu{
+            left: 20px; right: 20px;
+            height: 40px;
+            line-height: 40px;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 20px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a2a1a1;
+            cursor: pointer;
+        }
+        .menu:hover{
+            background-color: rgb(240, 240, 240);
+        }
+        #Master_File{
+            position: absolute;
+            top: 20px;
+        }
+        #Statistical_Report{
+            position: absolute;
+            top: 65px;
+        }
+        #Selling_Strategy{
+            position: absolute;
+            top: 110px;
+        }
+        #Store_Environment{
+            position: absolute;
+            top: 155px;
+        }
+        #Orders{
+            position: absolute;
+            top: 200px;
+        }
+        #Filter{
+            font-size: 130%;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 20%;
+            left: 2%;
+        }
+        .Filter_box{
+            border-right: 1px solid #242527;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+        .Filter_txt{
+            color: #367889;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #Filter_window1{
+            display: block;
+            position: absolute;
+            top: 18%;
+            left: 0%; right: 0%;
+        }
+        #ServiceDate_filter{
+            position: absolute;
+            top: 23%;
+            left: 2%; right: 0%;
+        }
+        #Service_filter_select{
+            position: absolute;
+            top: 29%;
+            left: 6%;
+            font-size: 100%;
+            background:#fff;
+            height: 25px;
+            border:1px solid #8a8a8a;
+            border-radius: 3px;
+            vertical-align: middle;
+            width: 150px;
+            cursor: pointer;
+        }
+        #Date_filter{
+            position: absolute;
+            top: 23%;
+            left: 18%;
+        }
+        #Apply_btn{
+            position: absolute;
+            top: 26%; left: 35%;
+            font-size: 100%;
+            cursor: pointer;
+        }
+        #Search{
+            position: absolute;
+            top: 20%;
+            right: 5%;
+        }
+        #Search_input{
+            width: 220px;
+            padding-left: 10px;
+            background:#fff;
+            border-radius: 3px;
+            height: 24px;
+            line-height: 24px;
+            vertical-align: middle;
+            border:1px solid #9a9a9a;
+        }
+        .process-btn{
+            width: 120px;
+            height: 35px;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 35px;
+            display: inline-block;
+            font-size: 12px;
+            line-height: 35px;
+            font-weight: bold;
+        }
+        .process-btn-green{
+            color: rgb(122,154,86);
+            background:rgb(122,154,86,0.3)
+        }
+        .process-btn-blue{
+            color: rgb(40,57,67);
+            background:rgb(40,57,67,0.3)
+        }
+        .process-btn-cancel{
+            color: rgb(130,130,130);
+            background:rgb(130,130,130,0.3)
+        }
+        .process-btn-hold{
+            color: rgb(144,115,44);
+            background:rgb(144,115,44,0.3)
+        }
+        .Window{
+            margin-top: 30px;
+            padding:25px
+        }
+        .Order_table tbody tr:nth-of-type(odd) {
+            background-color: rgba(0,0,0,0.02) !important;
+            text-align: left;
+        }
+        .Order_table tbody tr:nth-of-type(even) {
+            text-align: center;
+            text-align: left;
+        }
+        .table td, .table th{
+            border-top: none !important;
+            width: 5%;
+        }
+        .table{
+            border: 1px solid #ccc;
+        }
+        .table thead th{
+            border-bottom-width: 1px !important;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div id="Search">
+    <input type="search" id="Search_input" class="aaaa" placeholder="Search by key word" data-table="table">
+</div>
+
+<div id="Filter_window1" class="Window">
+    <table class="table Order_table">
+        <thead>
+        <tr>
+            <th scope="col" class="b-c">ID</th>
+            <th scope="col" class="b-c">User Name</th>
+            <th scope="col" class="b-c">Groomer Name</th>
+            <th scope="col" class="b-c">Date</th>
+            <th scope="col" class="b-c">Service</th>
+            <th scope="col">Status</th>
+            <th scope="col" class="b-c">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- thymeleaf each -->
+        <tr th:each="appointment : ${appointmentList}">
+            <td th:text="${appointment.getId()}"></td>
+            <td th:text="${appointment.getUser().getAccount().getUsername()}"></td>
+            <td th:text="${appointment.getEmployeeId().getName()}"></td>
+            <td th:text="${appointment.getDate()}"></td>
+            <td th:text="${appointment.getServiceName().getServiceName()}"></td>
+            <td th:text="${appointment.getStatus()}"></td>
+            <td th:text="${appointment.getFee()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id = "Top";>
+    <span id="logo">Furry Fashion</span>
+    <span>
+            <h1 id="System_name">
+                Management System
+            </h1>
+        </span>
+</div>
+
+<a th:href="@{/management_system}">
+    <div id="Home">
+        <img id="Home_img" src="/manager/images/home.png" style="width: 45%; height: 40%; position: absolute; left: 16%; top:20%">
+        <p id="Home_name">Home</p>
+    </div>
+</a>
+
+<a th:href="@{/logout}">
+    <div id="Logout">
+        <img id="Logout_img" src="/manager/images/logout.png" style="width: 100%; height: 80%;">
+        <p id="Logout_name">Log out</p>
+    </div>
+</a>
+
+<div id="Navigation">
+    <h2 id="Nav_name">Orders</h2>
+</div>
+
+<div id = "Menu">
+    <button id="Menu_btn1">Menu</button>
+</div>
+
+<div id="black">
+</div>
+
+<div id="Menu_window">
+    <a th:href="@{/manager/master-file}">
+        <div id = "Master_File" class="menu">
+            Master File
+        </div>
+    </a>
+    <a th:href="@{/manager/statistical-reports}">
+        <div id = "Statistical_Report" class="menu">
+            Statistical Report
+        </div>
+    </a>
+    <a th:href="@{/manager/SellingStrategy}">
+        <div id = "Selling_Strategy" class="menu">
+            Selling Strategy
+        </div>
+    </a>
+    <a th:href="@{/manager/shop-appearance/find-all}">
+        <div id = "Store_Environment" class="menu">
+            Store Environment
+        </div>
+    </a>
+    <a th:href="@{/manager/managerorders}">
+        <div id = "Orders" class="menu">
+            Orders
+        </div>
+    </a>
+
+</div>
+
+<script>
+    var Menu_btn1=document.getElementById("Menu_btn1")
+    var Menu_window=document.getElementById("Menu_window")
+    var black=document.getElementById("black")
+    var click_num=0;
+    Menu_btn1.onclick=function(){
+        if(click_num==0){
+            Menu_window.style.display="block";
+            black.style.display="block";
+            click_num++;
+        }
+        else{
+            Menu_window.style.display="none";
+            black.style.display="none";
+            click_num--;
+        }
+    }
+</script>
+<script>
+    (function (document) {
+        'use strict';
+
+        var TableFilter = (function (myArray) {
+            var search_input;
+
+            function _onInputSearch(e) {
+                search_input = e.target;
+                var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
+                myArray.forEach.call(tables, function (table) {
+                    myArray.forEach.call(table.tBodies, function (tbody) {
+                        myArray.forEach.call(tbody.rows, function (row) {
+                            var text_content = row.textContent.toLowerCase();
+                            var search_val = search_input.value.toLowerCase();
+                            row.style.display = text_content.indexOf(search_val) > -1 ? '' : 'none';
+                        });
+                    });
+                });
+            }
+
+            return {
+                init: function () {
+                    var inputs = document.getElementsByClassName('aaaa');
+                    myArray.forEach.call(inputs, function (input) {
+                        input.oninput = _onInputSearch;
+                    });
+                }
+            };
+        })(Array.prototype);
+
+        document.addEventListener('readystatechange', function () {
+            if (document.readyState === 'complete') {
+                TableFilter.init();
+            }
+        });
+
+    })(document);
+</script>
+</body>
+</html>

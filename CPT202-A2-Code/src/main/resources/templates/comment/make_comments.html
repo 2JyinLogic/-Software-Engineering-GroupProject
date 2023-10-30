@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>make a comment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="/comment/css/semantic.min.css">
+    <link rel="stylesheet" href="/comment/css/header.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script src="/comment/js/semantic.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.ui.dropdown').dropdown();
+            $('.ui.rating')
+                .rating({
+                    initialRating: 0,
+                    maxRating: 5,
+
+                })
+            ;
+        });
+    </script>
+
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Furry Fashion</div>
+    <div class="userinfo">
+        <div class="item user">
+            <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">
+            <i class="icon"></i>
+            <div class="user_wrap">
+                <a th:href="@{/user/{token}/account(token=${accountToken})}" id="sign-in-link">Account</a>
+                <a th:href="@{/user/{token}/history(token=${accountToken})}">Orders</a>
+                <a th:href="@{/home}">Sign Out</a>
+            </div>
+        </div>
+        <div class="item home_icon">
+            <img src="https://p1.ssl.qhimg.com/t01d6a6a68b7c4e45a5.png" alt="Home">
+            <a th:href="@{/mainpage}" style="color: white;"> Home</a>
+        </div>
+    </div>
+</header>
+
+<h2 style="color: rgb(123 100 171)" class="ui center aligned icon header">
+    <i class="circular file alternate outline icon"></i>
+    Make a comment
+</h2>
+
+<div class="ui container">
+    <div class="ui raised very padded segment">
+        <form class="ui form" th:action="@{/history/make-comments}" method="POST">
+            <h4 class="ui dividing large header">Comment's content</h4>
+
+            <div style="line-height:30px" class="ui form">
+                <div class="required two wide field">
+                    <label>Score the service</label>
+                    <div class="ui star rating"></div>
+                </div>
+
+                <div class="required ten wide field">
+                    <label>Text</label>
+                    <div>
+                        <label>Anonymity</label>
+                        <input type="radio" id="Anonymity" th:field="*{review.isAnonymous}" value="true"/>
+                        <input type="radio" id="NonAnonymity" th:field="*{review.isAnonymous}" value="false" style="display: none;"/>
+                    </div>
+                    <p>(Maximum 200 words)</p>
+                    <textarea placeholder="Your Comments..." th:field="*{review.content}"></textarea>
+                </div>
+
+                <div class="fields">
+                    <div class="four wide field"></div>
+                    <button type="submit" style="background-color:rgb(123 100 171); color:white"
+                            class="ui large fluid button">
+                        Save
+                    </button>
+                    <!-- <button style="background-color:rgb(123 100 171); color:white"
+                            class="ui large fluid button">
+                        <a th:href="@{/history/make-comments}">
+                            Discard
+                        </a>
+                    </button> -->
+                    <div class="four wide field"></div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="/comment/js/index.js"></script>
+
+<script>
+    var Anonymity=document.getElementById("Anonymity")
+    var NonAnonymity=document.getElementById("NonAnonymity")
+    var click_num=0;
+    NonAnonymity.checked = true;
+    Anonymity.onclick=function(){
+        if(click_num==0){
+            Anonymity.checked = true;
+            NonAnonymity.checked = false;
+            click_num=1;
+        }
+        else{
+            Anonymity.checked = false;
+            NonAnonymity.checked = true;
+            click_num=0;
+        }
+        
+    }
+
+</script>
+
+</body>

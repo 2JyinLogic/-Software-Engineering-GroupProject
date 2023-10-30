@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>
+            Something went wrong!
+        </h1>
+    </head>
+
+    <article>
+    <h1>Our Engineers are working on it.</h1>
+
+    <h2>If you are a user</h2>
+    <a data-th-href="@{/mainpage}">then go user's home page</a>
+    <h2>If you are the manager</h2>
+    <a data-th-href="@{/management_system}">then go the manager's home page</a>
+    <h2>Need help?</h2>
+    <a data-th-href="@{/help}">visit our help page</a>
+
+    <h1>Debug info (error code):</h1>
+    <p data-th-text="${errorCode}"></p>
+    </article>
+</html>

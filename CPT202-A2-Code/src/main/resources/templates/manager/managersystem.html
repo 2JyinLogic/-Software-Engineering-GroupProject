@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager System</title>
+    <style>
+        *{
+            font-family: DD-TTNorms, -apple-system, 
+            BlinkMacSystemFont, "Segoe UI", Roboto, 
+            Helvetica, Arial, sans-serif, "Apple Color Emoji", 
+            "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        #Top{
+            font: 'STSong';
+            background-color: rgb(123, 100, 171, 1);
+            position:absolute;
+            bottom: 90%; 
+            right:0%; left:0%; 
+        }
+        #Home{
+            position: absolute;
+            top:0%;
+            right: 7%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Home_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Logout{
+            position: absolute;
+            top:0%;
+            right: 3%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Logout_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Navigation{
+            background-color: rgb(242, 239, 248);
+            box-shadow: 0px 4px 10px;
+            position:absolute;
+            top:10%; bottom: 83%; 
+            right:0%; left:0%; 
+        }
+        #System_name{
+            font-family: Times New Roman;
+            color: rgb(253, 253, 253); 
+            text-align: center;
+        }
+        #logo{
+            color: rgb(253, 253, 253); 
+            position: absolute;
+            top:28%;
+            left: 10%;
+            font-size: 38px;
+            font-family: Times New Roman;
+            font-style: italic;
+        }
+        #Menu{
+            position:absolute;
+            top:2.5%; 
+            left:2%; 
+        }
+        #Menu_btn1{
+            width: 70px;
+            height: 40px;
+            background-color: #fff;
+            color: rgb(123, 100, 171, 1);
+            border-radius: 5px;
+            border-color: #fff;
+            font-size: 20px;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+        }
+        #Menu_btn1:hover{
+            background-color: rgb(242, 239, 248);
+        }
+        #Menu_window{
+            background-color: rgb(255, 255, 255);
+            display: none;
+            box-shadow: 4px 4px 10px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: rgb(123, 100, 171, 1);
+            position:absolute;
+            top:10%; bottom: 0%;
+            left:0%; right: 80%;
+        }
+        #black{
+            display: none;
+            position: absolute;
+            top:10%; bottom: 0%;
+            left: 0%; right: 0%;
+            background-color: rgba(110, 110, 110, 0.528);   
+        }
+        #Nav_name{
+            font-family: Times New Roman;
+            text-align: center;
+        }
+        .menu{
+            left: 20px; right: 20px;
+            height: 40px; 
+            line-height: 40px;
+            align-items: center;
+            background-color: rgb(255, 255, 255);   
+            text-align: center;
+            font-size: 20px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a2a1a1;
+            cursor: pointer;
+        }
+        .menu:hover{
+            background-color: rgb(240, 240, 240);   
+        }
+        #Master_File{
+            position: absolute;
+            top: 20px; 
+        }
+        #Statistical_Report{
+            position: absolute;
+            top: 65px; 
+        }
+        #Selling_Strategy{
+            position: absolute;
+            top: 110px; 
+        }
+        #Store_Environment{
+            position: absolute;
+            top: 155px; 
+        }
+        #Orders{
+            position: absolute;
+            top: 200px; 
+        }
+        #window{
+            display: flex;
+            margin-top: 10%;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .block{
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+            width: 29%;
+            height: 230px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #8c8c8c;
+            cursor: pointer;
+        }
+        .Background{
+            position: relative;
+            left: 0%; 
+            width:100%;
+            height: 60%;
+        }
+        .Name{
+            position: relative;
+            left: 3%;
+            top: -5%;
+        }
+        .Name1{
+            font-size: 20px;
+        }
+        .Intro{
+            position: absolute;
+            left: 3%; 
+            top: 75%;
+            width: 94%;
+            color: #5f5f5f;
+        }
+    </style>
+</head>
+<body>
+    <div id = "Top";>
+        <span id="logo">Furry Fashion</span>
+        <span>
+            <h1 id="System_name">
+                Management System
+            </h1> 
+        </span>
+    </div>
+
+    <a th:href="@{/logout}">
+        <div id="Logout">
+            <img id="Logout_img" src="/manager/images/logout.png" style="width: 100%; height: 80%;">
+            <p id="Logout_name">Log out</p>
+        </div>
+    </a>
+
+<a th:href="@{/management_system}">
+    <div id="Home">
+        <img id="Home_img" src="/manager/images/home.png" style="width: 45%; height: 40%; position: absolute; left: 16%; top:20%">
+        <p id="Home_name">Home</p>
+    </div>
+</a>
+
+    <div id="Navigation">
+        <h2 id="Nav_name">Home</h2>
+    </div>
+
+    <div id = "Menu">
+        <button id="Menu_btn1">Menu</button>
+    </div>
+
+    <div id="window">
+        <div class="block">
+            <a th:href="@{/manager/master-file}">
+                <img src="/manager/images/1.jpg" class="Background">
+                <div class="Name">
+                    <p class="Name1"><b>Master File</b></p>
+                    <p class="Intro">Here you can manage user information and the number of in-store tools</p>
+                </div>
+            </a>
+        </div>
+        <div class="block">
+            <a th:href="@{/manager/statistical-reports}">
+                <img src="/manager/images/2.jpg" class="Background">
+                <div class="Name">
+                    <p class="Name1"><b>Statistical Report</b></p>
+                    <p class="Intro">You can generate and view data analysis charts of sales here.</p>
+                </div>
+            </a>
+        </div>
+        <div class="block">
+            <a th:href="@{/manager/shop-appearance/find-all}">
+                <img src="/manager/images/3.jpg" class="Background">
+                <div class="Name">
+                    <p class="Name1"><b>Store Environment</b></p>
+                    <p class="Intro">You can add or remove photos showing the in-store environment here.</p>
+                </div>
+            </a>
+        </div>
+        <div class="block">
+            <a th:href="@{/manager/SellingStrategy}">
+                <img src="/manager/images/4.jpg" class="Background">
+                <div class="Name">
+                    <p class="Name1"><b>Selling Strategy</b></p>
+                    <p class="Intro">This is where you can set up marketing strategies for up-selling and cross-selling.</p>
+                </div>
+            </a>
+        </div>
+        <div class="block">
+            <a th:href="@{/manager/managerorders}">
+                <img src="/manager/images/5.jpg" class="Background">
+                <div class="Name">
+                    <p class="Name1"><b>Orders</b></p>
+                    <p class="Intro">You can view the user's order information here.</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <div id="black">
+    </div>
+
+    <div id="Menu_window">
+        <a th:href="@{/manager/master-file}">
+            <div id = "Master_File" class="menu">
+                Master File
+            </div>
+        </a>
+        <a th:href="@{/manager/statistical-reports}">
+            <div id = "Statistical_Report" class="menu">
+                Statistical Report
+            </div>
+        </a>
+        <a th:href="@{/manager/SellingStrategy}">
+            <div id = "Selling_Strategy" class="menu">
+                Selling Strategy
+            </div>
+        </a>
+        <a th:href="@{/manager/shop-appearance/find-all}">
+            <div id = "Store_Environment" class="menu">
+                Store Environment
+            </div>
+        </a>
+        <a th:href="@{/manager/managerorders}">
+            <div id = "Orders" class="menu">
+                Orders
+            </div>
+        </a>
+    </div>
+
+    <script>
+        var Menu_btn1=document.getElementById("Menu_btn1")
+        var Menu_window=document.getElementById("Menu_window")
+        var black=document.getElementById("black")
+        var click_num=0;
+        Menu_btn1.onclick=function(){
+            if(click_num==0){
+                Menu_window.style.display="block";
+                black.style.display="block";
+                click_num++;
+            }
+            else{
+                Menu_window.style.display="none";
+                black.style.display="none";
+                click_num--;
+            }
+        }
+
+    </script>
+</body>
+</html>

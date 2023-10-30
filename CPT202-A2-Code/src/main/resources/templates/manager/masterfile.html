@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master File</title>
+    <style>
+        * {
+            font-family: DD-TTNorms, -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Roboto,
+            Helvetica, Arial, sans-serif, "Apple Color Emoji",
+            "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        #Top {
+            background-color: rgb(123, 100, 171, 1);
+            position: absolute;
+            bottom: 90%;
+            right: 0%;
+            left: 0%;
+        }
+
+        #Home{
+            position: absolute;
+            top:0%;
+            right: 7%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Home_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Logout{
+            position: absolute;
+            top:0%;
+            right: 3%;
+            width: 60px;
+            height: 65px;
+            cursor: pointer;
+        }
+        #Logout_name{
+            position: absolute;
+            top: 40%;
+            left: 5%;
+            color: #ffffff;
+        }
+        #Navigation {
+            background-color: rgb(242, 239, 248);
+            box-shadow: 0px 4px 10px;
+            position: absolute;
+            top: 10%;
+            bottom: 83%;
+            right: 0%;
+            left: 0%;
+        }
+
+        #System_name {
+            font-family: Times New Roman;
+            color: rgb(253, 253, 253);
+            text-align: center;
+        }
+
+        #logo {
+            color: rgb(253, 253, 253);
+            position: absolute;
+            top: 28%;
+            left: 10%;
+            font-size: 38px;
+            font-family: Times New Roman;
+            font-style: italic;
+        }
+
+        #Menu {
+            position: absolute;
+            top: 2.5%;
+            left: 2%;
+        }
+
+        #Menu_btn1 {
+            width: 70px;
+            height: 40px;
+            background-color: #fff;
+            color: rgb(123, 100, 171, 1);
+            border-radius: 5px;
+            border-color: #fff;
+            font-size: 20px;
+            vertical-align: middle;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #Menu_btn1:hover {
+            background-color: rgb(242, 239, 248);
+        }
+
+        #Menu_window {
+            background-color: rgb(255, 255, 255);
+            display: none;
+            box-shadow: 4px 4px 10px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: rgb(123, 100, 171, 1);
+            position: absolute;
+            top: 10%;
+            bottom: 0%;
+            left: 0%;
+            right: 80%;
+        }
+        #black {
+            display: none;
+            position: absolute;
+            top: 10%;
+            bottom: 0%;
+            left: 0%;
+            right: 0%;
+            background-color: rgba(110, 110, 110, 0.528);
+        }
+        #Nav_name {
+            font-family: Times New Roman;
+            text-align: center;
+        }
+
+        .menu {
+            left: 20px;
+            right: 20px;
+            height: 40px;
+            line-height: 40px;
+            align-items: center;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 20px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #a2a1a1;
+            cursor: pointer;
+        }
+
+        .menu:hover {
+            background-color: rgb(240, 240, 240);
+        }
+
+        #Master_File {
+            position: absolute;
+            top: 20px;
+        }
+
+        #Statistical_Report {
+            position: absolute;
+            top: 65px;
+        }
+
+        #Selling_Strategy {
+            position: absolute;
+            top: 110px;
+        }
+
+        #Store_Environment {
+            position: absolute;
+            top: 155px;
+        }
+
+        #Orders {
+            position: absolute;
+            top: 200px;
+        }
+
+        #Table1 {
+            position: absolute;
+            top: 27%;
+            left: 2%;
+            width: 96%;
+        }
+
+        #Table1_edit {
+            position: absolute;
+            top: 27%;
+            left: 2%;
+            width: 96%;
+        }
+
+        #Table2 {
+            position: absolute;
+            top: 27%;
+            left: 2%;
+            width: 96%;
+        }
+
+        #Table2_edit {
+            position: absolute;
+            top: 27%;
+            left: 2%;
+            width: 96%;
+        }
+
+        #Add_row {
+            position: absolute;
+            top: 20%;
+        }
+
+        table.E_Table {
+            margin-top: 15px;
+            border-collapse: collapse;
+            border: 1px solid #aaa;
+            width: 100%;
+        }
+
+        table.E_Table th {
+            vertical-align: baseline;
+            padding: 5px 15px 5px 6px;
+            background-color: #3F3F3F;
+            border: 1px solid #3F3F3F;
+            text-align: left;
+            color: #fff;
+        }
+
+        table.E_Table td {
+            vertical-align: text-top;
+            padding: 6px 15px 6px 6px;
+            border: 1px solid #aaa;
+        }
+
+        table.E_Table tr:nth-child(odd) {
+            background-color: #F5F5F5;
+        }
+
+        table.wTable tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        .Edit_window1 {
+            display: none;
+        }
+
+        .Edit_window2 {
+            display: none;
+        }
+
+        #Edit_btn1 {
+            font-size: 100%;
+            cursor: pointer;
+        }
+        #Add_btn{
+            font-size: 100%;
+            cursor: pointer;
+        }
+        #Edit_btn2 {
+            font-size: 100%;
+            cursor: pointer;
+        }
+
+        #Delete_btn1{
+            font-size: 100%;
+            cursor: pointer;
+        }
+        #Delete_btn2{
+            font-size: 100%;
+            cursor: pointer;
+        }
+
+        #Back_btn1 {
+            font-size: 100%;
+            cursor: pointer;
+        }
+
+        #Back_btn2 {
+            font-size: 100%;
+            cursor: pointer;
+        }
+        #Table1_search_Back_btn1{
+            font-size: 100%;
+            cursor: pointer;
+        }
+        #Table2_search_Back_btn1{
+            font-size: 100%;
+            cursor: pointer;
+        }
+        #ETable1_search_Back_btn1{
+            font-size: 100%;
+            cursor: pointer;
+        }
+        #ETable2_search_Back_btn1{
+            font-size: 100%;
+            cursor: pointer;
+        }
+        .Search_input {
+            position: absolute;
+            left: 75%;
+            width: 220px;
+            padding-left: 10px;
+            background: #fff;
+            border-radius: 3px;
+            height: 24px;
+            line-height: 24px;
+            vertical-align: middle;
+            border: 1px solid #9a9a9a;
+        }
+
+        .E_Row {
+            -webkit-user-modify: read-write;
+        }
+
+        #Table1 {
+            display: block;
+        }
+
+        #Table2 {
+            display: none;
+        }
+
+        #Filter {
+            position: absolute;
+            top: 20%;
+            left: 2%;
+            width: 96%;
+            height: 6%;
+        }
+
+        #User_btn {
+            width: 150px;
+            height: 40px;
+            line-height: 35px;
+            background: rgb(123, 100, 171);
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            border-radius: 15px;
+            border-color: rgb(123, 100, 171, 1);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #Shop_btn {
+            width: 150px;
+            height: 40px;
+            line-height: 35px;
+            background: rgb(242, 239, 248);
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            border-radius: 15px;
+            border-color: rgb(123, 100, 171, 1);
+            text-align: center;
+            cursor: pointer;
+        }
+        #Table1_search{
+            display: none;
+            position: absolute;
+            top: 27%;
+            left: 2%;
+            width: 96%;
+        }
+        #Table2_search{
+            display: none;
+            position: absolute;
+            top: 27%;
+            left: 2%;
+            width: 96%;
+        }
+        #Table1_edit_search{
+            display: none;
+            position: absolute;
+            top: 27%;
+            left: 2%;
+            width: 96%;
+        }
+        #Table2_edit_search{
+            display: none;
+            position: absolute;
+            top: 27%;
+            left: 2%;
+            width: 96%;
+        }
+    </style>
+</head>
+<body>
+<div id="Filter">
+    <button id="User_btn" style="font-size: 100%; cursor: pointer;"><b>User Master File</b></button>
+    <button id="Shop_btn" style="font-size: 100%; cursor: pointer;"><b>Shop Master File</b></button>
+</div>
+
+<div th:if="${errorUpdateFail}" class="alert alert-danger" role="alert" style="color: crimson; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${errorUpdateFail}"></span>
+</div>
+
+<div th:if="${updateSuccess}" class="alert alert-danger" role="alert" style="color: green; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${updateSuccess}"></span>
+</div>
+
+<div th:if="${deleteError}" class="alert alert-danger" role="alert" style="color: crimson; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${deleteError}"></span>
+</div>
+<div th:if="${deleteSuccess}" class="alert alert-danger" role="alert" style="color: green; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${deleteSuccess}"></span>
+</div>
+
+<div th:if="${itemNameDuplicated}" class="alert alert-danger" role="alert" style="color: crimson; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${itemNameDuplicated}"></span>
+</div>
+<div th:if="${addShopItemSuccess}" class="alert alert-danger" role="alert" style="color: green; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${addShopItemSuccess}"></span>
+</div>
+
+<div th:if="${errorShopItemUpdateFail}" class="alert alert-danger" role="alert" style="color: crimson; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${errorShopItemUpdateFail}"></span>
+</div>
+
+<div th:if="${shopItemUpdateSuccess}" class="alert alert-danger" role="alert" style="color: green; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${shopItemUpdateSuccess}"></span>
+</div>
+
+<div th:if="${deleteShopItemError}" class="alert alert-danger" role="alert" style="color: crimson; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${deleteShopItemError}"></span>
+</div>
+
+<div th:if="${deleteShopItemSuccess}" class="alert alert-danger" role="alert" style="color: green; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${deleteShopItemSuccess}"></span>
+</div>
+
+<!--UerMasterFile-->
+<div id="Table1">
+    <div>
+         <!--UserMasterFile Search-->
+         <span class="Search1">
+            <input type="search" class="Search_input Search_input1" placeholder="Search by User Name" data-table="customers-list1">
+        </span>
+
+        <span>
+            <!--UserMasterFile Edit-->
+            <form th:action="@{/manager/master-file/update-user-file}" th:method="PUT" th:object="${updateUser}">
+                <input th:field="*{user.account.username}" placeholder="Use user name to modify"/>
+                <input th:field="*{user.userEmail}" placeholder="Email Address"/>
+                <input th:field="*{user.phoneNum}" placeholder="Phone Number"/>
+                <input th:field="*{user.firstName}" placeholder="First Name"/>
+                <input th:field="*{user.lastName}" placeholder="Last Name"/>
+                <button id="Edit_btn1" type="submit" onclick="return confirm('Sure to edit?')">Modify</button>
+            </form>
+            <!--UserMasterFile Delete-->
+            <form th:action="@{/manager/master-file/delete-user-file}" th:method="DELETE" th:object="${deleteUser}">
+                <input th:field="*{user.account.username}" placeholder="Use user name to delete"/>
+                <button id="Delete_btn1" type="submit" onclick="return confirm('Sure to delete?')">Delete</button>
+            </form>
+        </span>
+        <p style="position: absolute; left: 20%; top: 2%; color: #ff9728">Update and deletion of user master file will also influence user information!</p>
+    </div>
+    <div>
+        <!--UserMasterFile View-->
+        <table id="Table1_table" class="E_Table customers-list1" style="background-color:#eeeeee;" bordercolor="#aaaaaa">
+            <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="userMasterFileItem : ${userMasterFileList}">
+                <td th:text = "${userMasterFileItem.getUser().getAccount().getUsername()}"></td>
+                <td th:text = "${userMasterFileItem.getUser().getUserEmail()}"></td>
+                <td th:text = "${userMasterFileItem.getUser().getPhoneNum()}"></td>
+                <td th:text = "${userMasterFileItem.getUser().getFirstName()}"></td>
+                <td th:text = "${userMasterFileItem.getUser().getLastName()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--ShopMasterFile-->
+<div id="Table2">
+    <div>
+        <!--ShopMasterFile Search-->
+        <span class="Search1">
+            <input type="search" class="Search_input Search_input2" placeholder="Search by Item Name" data-table="customers-list2">
+        </span>
+
+        <span>
+            <!--ShopMasterFile Add-->
+            <form th:action="@{/manager/master-file/add-shop-file}" method="POST" th:object="${shopMasterFileItem}">
+                <input th:field="*{itemName}" placeholder="Item Name"/>
+                <input th:field="*{number}" placeholder="Quantity"/>
+                <button id="Add_btn" type="submit" onclick="return confirm('Sure to add?')">Add</button>
+            </form>
+            <!--ShopMasterFile Edit-->
+            <form th:action="@{/manager/master-file/update-shop-file}" th:method="PUT" th:object="${updateShop}">
+                <input th:field="*{itemName}" placeholder="Use item name to modify" />
+                <input th:field="*{number}" placeholder="Quantity"/>
+                <button id="Edit_btn2" type="submit" onclick="return confirm('Sure to edit?')">Modify</button>
+            </form>
+            <!--ShopMasterFile Delete-->
+            <form th:action="@{/manager/master-file/delete-shop-file}" th:method="DELETE" th:object="${deleteShop}">
+                <input th:field="*{itemName}" placeholder="Use item name to delete"/>
+                <button id="Delete_btn2" type="submit" onclick="return confirm('Sure to delete?')">Delete</button>
+             </form>
+        </span>
+    </div>
+    <!--ShopMasterFile View-->
+    <table class="E_Table customers-list2" style="background-color:#eeeeee;" bordercolor="#aaaaaa">
+        <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="shopMasterFileItem : ${shopMasterFileList}">
+            <td th:text = "${shopMasterFileItem.getItemName()}"></td>
+            <td th:text = "${shopMasterFileItem.getNumber()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="Top" ;>
+    <span id="logo">Furry Fashion</span>
+    <span>
+            <h1 id="System_name">
+                Management System
+            </h1> 
+        </span>
+</div>
+
+<a th:href="@{/management_system}">
+    <div id="Home">
+        <img id="Home_img" src="/manager/images/home.png" style="width: 45%; height: 40%; position: absolute; left: 16%; top:20%">
+        <p id="Home_name">Home</p>
+    </div>
+</a>
+
+<a th:href="@{/logout}">
+    <div id="Logout">
+        <img id="Logout_img" src="/manager/images/logout.png" style="width: 100%; height: 80%;">
+        <p id="Logout_name">Log out</p>
+    </div>
+</a>
+
+<div id="Navigation">
+    <h2 id="Nav_name">Master File</h2>
+</div>
+
+<div id="Menu">
+    <button id="Menu_btn1">Menu</button>
+</div>
+
+<div id="black">
+</div>
+
+<div id="Menu_window">
+    <a th:href="@{/manager/master-file}">
+        <div id = "Master_File" class="menu">
+            Master File
+        </div>
+    </a>
+    <a th:href="@{/manager/statistical-reports}">
+        <div id = "Statistical_Report" class="menu">
+            Statistical Report
+        </div>
+    </a>
+    <a th:href="@{/manager/SellingStrategy}">
+        <div id = "Selling_Strategy" class="menu">
+            Selling Strategy
+        </div>
+    </a>
+    <a th:href="@{/manager/shop-appearance/find-all}">
+        <div id = "Store_Environment" class="menu">
+            Store Environment
+        </div>
+    </a>
+    <a th:href="@{/manager/managerorders}">
+        <div id = "Orders" class="menu">
+            Orders
+        </div>
+    </a>
+</div>
+
+<script>
+    var Menu_btn1 = document.getElementById("Menu_btn1")
+    var Menu_window = document.getElementById("Menu_window")
+    var black = document.getElementById("black")
+    var click_num = 0;
+    Menu_btn1.onclick = function () {
+        if (click_num == 0) {
+            Menu_window.style.display = "block";
+            black.style.display = "block";
+            click_num++;
+        } else {
+            Menu_window.style.display = "none";
+            black.style.display = "none";
+            click_num--;
+        }
+    }
+
+    var User_btn = document.getElementById("User_btn")
+    var Shop_btn = document.getElementById("Shop_btn")
+    var Table1 = document.getElementById("Table1")
+    var Table2 = document.getElementById("Table2")
+    User_btn.onclick = function () {
+        Table1.style.display = "block";
+        Table2.style.display = "block";
+        Table2.style.display = "none";
+        User_btn.style.backgroundColor = "rgb(123, 100, 171, 1)";
+        User_btn.style.color = "rgb(255, 255, 255, 1)";
+        Shop_btn.style.backgroundColor = "rgb(242, 239, 248)";
+        Shop_btn.style.color = "rgb(0, 0, 0, 1)";
+    }
+    Shop_btn.onclick = function () {
+        Table1.style.display = "none";
+        Table2.style.display = "block";
+        Shop_btn.style.backgroundColor = "rgb(123, 100, 171, 1)";
+        Shop_btn.style.color = "rgb(255, 255, 255, 1)";
+        User_btn.style.backgroundColor = "rgb(242, 239, 248)";
+        User_btn.style.color = "rgb(0, 0, 0, 1)";
+    }
+
+    
+    var AddConfirm_btn=document.getElementById("AddConfirm_btn")
+    AddConfirm_btn.onclick=function(){
+        Add_black.style.display="none";
+        Add_window.style.display="none";
+    }      
+</script>
+<script>
+    (function (document) {
+        'use strict';
+ 
+        var TableFilter = (function (myArray) {
+            var search_input;
+            function _onInputSearch(e) {
+                search_input = e.target;
+                var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
+                myArray.forEach.call(tables, function (table) {
+                    myArray.forEach.call(table.tBodies, function (tbody) {
+                        myArray.forEach.call(tbody.rows, function (row) {
+                            var text_content = row.textContent.toLowerCase();
+                            var search_val = search_input.value.toLowerCase();
+                            row.style.display = text_content.indexOf(search_val) > -1 ? '' : 'none';
+                        });
+                    });
+                });
+            }
+            return {
+                init: function () {
+                    var inputs = document.getElementsByClassName('Search_input1');
+                    myArray.forEach.call(inputs, function (input) {
+                        input.oninput = _onInputSearch;
+                    });
+                }
+            };
+        })(Array.prototype);
+        document.addEventListener('readystatechange', function () {
+            if (document.readyState === 'complete') {
+                TableFilter.init();
+            }
+        });
+    })(document);
+
+    (function (document) {
+        'use strict';
+ 
+        var TableFilter = (function (myArray) {
+            var search_input;
+            function _onInputSearch(e) {
+                search_input = e.target;
+                var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
+                myArray.forEach.call(tables, function (table) {
+                    myArray.forEach.call(table.tBodies, function (tbody) {
+                        myArray.forEach.call(tbody.rows, function (row) {
+                            var text_content = row.textContent.toLowerCase();
+                            var search_val = search_input.value.toLowerCase();
+                            row.style.display = text_content.indexOf(search_val) > -1 ? '' : 'none';
+                        });
+                    });
+                });
+            }
+            return {
+                init: function () {
+                    var inputs = document.getElementsByClassName('Search_input2');
+                    myArray.forEach.call(inputs, function (input) {
+                        input.oninput = _onInputSearch;
+                    });
+                }
+            };
+        })(Array.prototype);
+        document.addEventListener('readystatechange', function () {
+            if (document.readyState === 'complete') {
+                TableFilter.init();
+            }
+        });
+    })(document);
+</script>
+</body>
+</html>

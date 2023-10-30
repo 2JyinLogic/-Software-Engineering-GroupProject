@@ -1,0 +1,81 @@
+
+  
+  .home {
+    width :100%;
+    margin: 0 auto;
+  }
+  
+  header {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    padding         : 10px 50px;
+    color           : white;
+    background-color:  rgb(123,100,171);
+  }
+  
+  header .logo {
+    font-size: 38px;
+    font-family: Times New Roman;
+    font-style: italic;
+  }
+  
+  header .userinfo {
+    display    : flex;
+    align-items: center;
+  }
+  
+  header .userinfo .item {
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+    padding        : 0 20px;
+  }
+  
+  header .userinfo .item.user {
+    position      : relative;
+    border-right  : 1px solid rgba(255, 255, 255, .5);
+    display       : flex;
+    flex-direction: row;
+    align-items   : center;
+    cursor        : pointer;
+  }
+  
+  header .userinfo .item.user .icon {
+    display        : block;
+    width          : 14px;
+    height         : 14px;
+    background     : url('https://p5.ssl.qhimg.com/t0169809a39c805b09a.png') no-repeat;
+    background-size: 100%;
+  }
+  
+  header .userinfo .item.user .user_wrap {
+    position: absolute;
+    top: 51px;
+    right: px;
+    display: none;
+    flex-direction: column;
+    width: 270px;
+    padding: 15px;
+    background-color: #372a6433;
+    border-radius: 15px;
+    z-index: 6;
+  }
+  
+  header .userinfo .item.user .user_wrap.show {
+    display: flex;
+  }
+  
+  header .userinfo .item.user .user_wrap a {
+    font-weight: bold;
+    font-size: 1.12rem;
+    line-height: 1.8rem;
+    color: rgb(0, 25, 82);
+    padding-left: 25px;
+  }
+  
+  header .userinfo .item img {
+    width : 30px;
+    height: 30px;
+  }

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="/account/css/semantic.min.css">
+    <link rel="stylesheet" href="/account/css/header.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/account/js/semantic.min.js"></script>
+
+</head>
+
+<body>
+<div th:if="${duplicate}" class="alert alert-danger" role="alert" style="color: crimson; position: absolute; top: 22%; left: 27%;">
+    <span th:text="${duplicate}"></span>
+</div>
+<!--<div class="ui negative message" th:if="${param.error}">-->
+<!--    Username or Email already exists.-->
+<!--</div>-->
+<header>
+    <div class="logo">Furry Fashion</div>
+    <div class="userinfo">
+        <div class="item user">
+            <img src="https://p3.ssl.qhimg.com/t01810a2f17924cb476.png" alt="Account">
+            <i class="icon"></i>
+            <div class="user_wrap">
+                <a href="/login" id="sign-in-link">Sign In</a>
+                <a th:href="@{/sign-up}" id="sign-up-link">Sign Up</a>
+            </div>
+        </div>
+        <div class="item home_icon">
+            <img src="https://p1.ssl.qhimg.com/t01d6a6a68b7c4e45a5.png" alt="Home">
+            <a href="/" style="color: white;"> Home</a>
+        </div>
+    </div>
+</header>
+
+<div>
+    <div class="ui centered container stackable middle aligned two column grid">
+        <div style="height: 50px" class="row"></div>
+        <div class="row">
+            <div class="stretched column">
+                <div class="ui purple message">
+                    <div>Already have an account? <a th:href="@{/login}">Log in</a></div>
+                    <div>View our Privacy Policy: <a th:href="@{/agreement}">Privacy Policy</a></div>
+                </div>
+                <div class="ui purple raised very padded segment">
+                    <form th:action="@{/sign-up}" method="POST" class="ui large form">
+                        <h2 style="color:rgb(123 100 171)" class="ui center aligned header">Sign up</h2>
+                        <div th:if="${param.error}">
+                            One of the fields is invalid. Username has to be shorter than 31 characters. Password
+                            is between 8 to 31 (inclusive). Can only contain letters, numbers, and .,?!_-+
+                        </div>
+                        <div class="field">
+                            <label>Your User Name</label>
+                            <div class="ui fluid left icon input">
+                                <input placeholder="User Name" id="login-id" name="username" maxlength="50"
+                                       type="text" th:field="*{account.username}">
+                                <i class="user icon"></i>
+                            </div>
+                        </div>
+
+<!--                        <div class="field">-->
+<!--                            <label for="role">Your Role</label>-->
+<!--                            <div class="ui selection dropdown">-->
+<!--                                <input type="hidden" id="role" name="Role" th:field="*{account.userRole}">-->
+<!--                                <i class="dropdown icon"></i>-->
+<!--                                <i aria-hidden="true" class="address card icon"></i>-->
+<!--                                <div class="default text">Role</div>-->
+<!--                                <div class="menu">-->
+<!--                                    <div class="item" value="USER">USER</div>-->
+<!--                                    <div class="item" value="MANAGER">MANAGER</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <div class="field">
+                            <label>Your Password</label>
+                            <div class="ui fluid left icon input">
+                                <input placeholder="Password" id="login-password" name="password" maxlength="50"
+                                       type="password" th:field="*{account.userPassword}">
+                                <i aria-hidden="true" class="lock icon"></i>
+                            </div>
+                        </div>
+
+<!--                        <div class="field"><label>Your Phone Number</label>-->
+<!--                            <div class="ui fluid left icon input">-->
+<!--                                <input placeholder="Phone Number" id="phonemuber" name="phonemuber" maxlength="50"-->
+<!--                                       type="phonenumber" th:field="*{user.phoneNum}">-->
+<!--                                <i aria-hidden="true" class="phone icon"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <div class="field"><label>Your Email</label>
+                            <div class="ui fluid left icon input">
+                                <input placeholder="Email Address" id="login-email" name="email" maxlength="50"
+                                       value="" th:field="*{user.userEmail}">
+                                <i aria-hidden="true" class="envelope icon"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <button style="background-color:rgb(123 100 171); color:white"
+                                class="ui large fluid button">Create Account
+                        </button>
+                        <br>
+
+<!--                        <div class="field">-->
+<!--                            <div class="ui checkbox">-->
+<!--                                <input class="hidden" id="login-accepted-policies" name="acceptedPolicies" readonly-->
+<!--                                       tabindex="0" type="checkbox" value="">-->
+<!--                                <label for="login-accepted-policies">I acknowledge that I agree to the-->
+<!--                                    <a target="_blank" th:href="@{/agreement}">Agreement</a>-->
+<!--                                    <span class="required">*</span>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <script>
+                            $(document).ready(function () {
+                                $('#login-accepted-policies').on('change', function () {
+                                    if ($(this).is(':checked')) {
+                                        $('#login-button').removeAttr('disabled');
+                                    } else {
+                                        $('#login-button').attr('disabled', true);
+                                        alert('Please agree to the terms and conditions.');
+                                    }
+                                });
+                            });
+
+
+                        </script>
+                        <script type="text/javascript">
+                            $(".ui.dropdown").dropdown();
+                        </script>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/account/js/index.js"></script>
+
+
+</body>
+
+</html>
